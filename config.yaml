@@ -1,0 +1,895 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: '0.0.0.0:80'
+external-ui: /etc/clash/yacd.meta
+secret: "password"
+experimental:
+    ignore-resolve-fail: true
+tun:
+    enable: true
+    stack: system
+    auto-route: true
+    auto-detect-interface: true
+#    dns-hijack:
+#      - any:53
+#    device: utun0
+dns:
+    enable: true
+    listen: 0.0.0.0:5335
+    ipv6: false
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.18.0.1/15
+    fake-ip-filter:
+    - '*'
+    - '+.lan'
+    - "*.msftncsi.com"
+    - "*.msftconnecttest.com"
+    nameserver:
+    - 114.114.114.114
+    - 223.5.5.5
+proxies:
+    - name: "X86"
+      type: vless
+      server: 111.145.84.111
+      port: 443
+      uuid: d3f16b46-1cb1-4096-b838-6ec11157ae87
+      network: tcp
+      tls: true
+      udp: true
+      flow: xtls-rprx-vision
+      servername: www.speedtest.org
+      reality-opts:
+        public-key: vTLOrbb9pnAYHZ2oPN1v111AjEamYe7I_5MAEwz38Rs
+      client-fingerprint: chrome
+    - name: "ARM1"
+      type: vless
+      server: 111.226.17.83
+      port: 443
+      uuid: 3783418e-298d-4c0f-a5db-5911135a6e2c
+      network: tcp
+      tls: true
+      udp: true
+      flow: xtls-rprx-vision
+      servername: d1.awsstatic.com
+      reality-opts:
+        public-key: Cp4C55oT8RVT5111dTB2eYK3r05v2fF0kTsuVC9P3X0
+      client-fingerprint: chrome
+    - name: "ARM2"
+      type: vless
+      server: 111.56.187.199
+      port: 443
+      uuid: fcd6c0b6-ef17-43ce-b9c2-11139ecac052
+      network: tcp
+      tls: true
+      udp: true
+      flow: xtls-rprx-vision
+      servername: www.lovelive-anime.jp
+      reality-opts:
+        public-key: 2qupHCP-FR1PQuBqedhWbZCiVzUPH111RQ8_9Bg6XW0
+      client-fingerprint: chrome
+    - name: "HK"
+      type: vless
+      server: 121.234.53.211
+      port: 443
+      uuid: c1c96582-d6f5-4bd2-b13f-111243a597a9
+      network: tcp
+      tls: true
+      udp: true
+      flow: xtls-rprx-vision
+      servername: abc.abc.xyz
+      reality-opts:
+        public-key: qC6Sw36Emk6lVLnsQhDab4r8SDM5ByEmpRl111rCWUo
+      client-fingerprint: chrome
+    - { name: '🇭🇰【请定期更新订阅 | 更新于07/15】', type: vmess, server: gz1.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【PLUS套餐以上套餐解锁更多地区】, type: vmess, server: gz2.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇭🇰【不能用请更新订阅#优先香港节点】', type: vmess, server: gz3.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇭🇰【官网tiger81.cc tiger82.cc tiger83.cc】', type: vmess, server: gz4.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇭🇰【群组 https://t.me/TigerClub888】', type: vmess, server: gz5.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇭🇰【频道 https://t.me/TigerClub666】', type: vmess, server: gz6.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【Hongkong①仅海外用户可用】, type: vmess, server: bnxh.drt390.com, port: '20503', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【Hongkong②仅海外用户可用】, type: vmess, server: 185.244.208.119, port: '21000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【Singapore①仅海外用户可用】, type: vmess, server: lisg-01.tigeroo1.com, port: '21000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【Singapore②仅海外用户可用】, type: vmess, server: lisg-02.tigeroo1.com, port: '21000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【Japan①仅海外用户可用】, type: vmess, server: 128.22.134.45, port: '21000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【Japan②仅海外用户可用】, type: vmess, server: lijp-01.tigeroo1.com, port: '21000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【Japan③仅海外用户可用】, type: vmess, server: lijp-02.tigeroo1.com, port: '21000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇳【India①仅海外用户可用】, type: vmess, server: 152.70.71.4, port: '20000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇳【India②仅海外用户可用】, type: vmess, server: 129.154.38.17, port: '11118', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇳【India③仅海外用户可用】, type: vmess, server: 155.248.243.55, port: '20000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【Taiwan①仅海外用户可用】, type: vmess, server: tw.otakus.ml, port: '21000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【Taiwan②仅海外用户可用】, type: vmess, server: 125.227.22.128, port: '20000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【Taiwan③仅海外用户可用】, type: vmess, server: hidy2.drt390.com, port: '20000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【America①仅海外用户可用】, type: vmess, server: do1.tigeroo1.com, port: '20000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【America②仅海外用户可用】, type: vmess, server: do2.tigeroo1.com, port: '20000', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•首尔01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '18441', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•首尔02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '18441', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•首尔03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '18441', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•首尔04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '18441', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•首尔05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '18441', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•首尔06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '18441', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•釜山01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '18440', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•釜山02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '18440', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•釜山03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '18440', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•釜山04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '18440', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•釜山05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '18440', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇷【VIP韩国•釜山06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '18440', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•东京01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '18007', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•东京02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '18007', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•东京03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '18007', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•东京04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '18007', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•东京05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '18007', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•东京06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '18007', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '18008', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '18008', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '18008', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '18008', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '18008', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '18008', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾01联通内网专线】, type: vmess, server: lt1.any1886.com, port: '58203', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾02联通内网专线】, type: vmess, server: lt2.any1886.com, port: '58203', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾03联通内网专线】, type: vmess, server: lt3.any1886.com, port: '58203', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾04联通内网专线】, type: vmess, server: lt4.any1886.com, port: '58203', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾05联通内网专线】, type: vmess, server: lt1.any1886.com, port: '58204', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾06联通内网专线】, type: vmess, server: lt2.any1886.com, port: '58204', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾07联通内网专线】, type: vmess, server: lt3.any1886.com, port: '58204', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【VIP台湾08联通内网专线】, type: vmess, server: lt4.any1886.com, port: '58204', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本01联通内网专线】, type: vmess, server: lt1.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本02联通内网专线】, type: vmess, server: lt2.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本03联通内网专线】, type: vmess, server: lt3.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本04联通内网专线】, type: vmess, server: lt4.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本05联通内网专线】, type: vmess, server: lt1.any1886.com, port: '38016', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本06联通内网专线】, type: vmess, server: lt2.any1886.com, port: '38016', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本07联通内网专线】, type: vmess, server: lt3.any1886.com, port: '38016', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本08联通内网专线】, type: vmess, server: lt4.any1886.com, port: '38016', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪01家庭宽带】, type: vmess, server: lt1.any1886.com, port: '38014', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪02家庭宽带】, type: vmess, server: lt2.any1886.com, port: '38014', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪03家庭宽带】, type: vmess, server: lt3.any1886.com, port: '38014', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇯🇵【VIP日本•大阪04家庭宽带】, type: vmess, server: lt4.any1886.com, port: '38014', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国01联通内网专线】, type: vmess, server: lt1.any1886.com, port: '58201', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国02联通内网专线】, type: vmess, server: lt2.any1886.com, port: '58201', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国03联通内网专线】, type: vmess, server: lt3.any1886.com, port: '58201', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国04联通内网专线】, type: vmess, server: lt4.any1886.com, port: '58201', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国05联通内网专线】, type: vmess, server: lt1.any1886.com, port: '58202', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国06联通内网专线】, type: vmess, server: lt2.any1886.com, port: '58202', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国07联通内网专线】, type: vmess, server: lt3.any1886.com, port: '58202', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国08联通内网专线】, type: vmess, server: lt4.any1886.com, port: '58202', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡01联通内网专线】, type: vmess, server: lt1.any1886.com, port: '39801', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡02联通内网专线】, type: vmess, server: lt2.any1886.com, port: '39801', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡03联通内网专线】, type: vmess, server: lt3.any1886.com, port: '39801', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡04联通内网专线】, type: vmess, server: lt4.any1886.com, port: '39801', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡05联通内网专线】, type: vmess, server: lt1.any1886.com, port: '39802', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡06联通内网专线】, type: vmess, server: lt2.any1886.com, port: '39802', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡07联通内网专线】, type: vmess, server: lt3.any1886.com, port: '39802', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬【VIP新加坡08联通内网专线】, type: vmess, server: lt4.any1886.com, port: '39802', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港CMHK01静态家庭宽带】, type: vmess, server: gz1.any1886.com, port: '18237', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港CMHK02静态家庭宽带】, type: vmess, server: gz2.any1886.com, port: '18237', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港CMHK03静态家庭宽带】, type: vmess, server: gz3.any1886.com, port: '18237', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港CMHK04静态家庭宽带】, type: vmess, server: gz4.any1886.com, port: '18237', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港CMHK05静态家庭宽带】, type: vmess, server: gz5.any1886.com, port: '18237', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港CMHK06静态家庭宽带】, type: vmess, server: gz6.any1886.com, port: '18237', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港HKBN01动态家庭宽带】, type: vmess, server: gz1.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港HKBN02动态家庭宽带】, type: vmess, server: gz2.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港HKBN03动态家庭宽带】, type: vmess, server: gz3.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港HKBN04动态家庭宽带】, type: vmess, server: gz4.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港HKBN05动态家庭宽带】, type: vmess, server: gz5.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港HKBN06动态家庭宽带】, type: vmess, server: gz6.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Gcore1内网专线】, type: vmess, server: gz1.any1886.com, port: '18740', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Gcore2内网专线】, type: vmess, server: gz2.any1886.com, port: '18740', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Gcore3内网专线】, type: vmess, server: gz3.any1886.com, port: '18740', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Gcore4内网专线】, type: vmess, server: gz4.any1886.com, port: '18740', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Gcore5内网专线】, type: vmess, server: gz5.any1886.com, port: '18740', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Gcore6内网专线】, type: vmess, server: gz6.any1886.com, port: '18740', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Dmit01内网专线】, type: vmess, server: gz1.any1886.com, port: '18739', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Dmit02内网专线】, type: vmess, server: gz2.any1886.com, port: '18739', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Dmit03内网专线】, type: vmess, server: gz3.any1886.com, port: '18739', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Dmit04内网专线】, type: vmess, server: gz4.any1886.com, port: '18739', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Dmit05内网专线】, type: vmess, server: gz5.any1886.com, port: '18739', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Dmit06内网专线】, type: vmess, server: gz6.any1886.com, port: '18739', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Hkisl01内网专线】, type: vmess, server: gz1.any1886.com, port: '37501', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Hkisl02内网专线】, type: vmess, server: gz2.any1886.com, port: '37501', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Hkisl03内网专线】, type: vmess, server: gz3.any1886.com, port: '37501', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Hkisl04内网专线】, type: vmess, server: gz4.any1886.com, port: '37501', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Hkisl05内网专线】, type: vmess, server: gz5.any1886.com, port: '37501', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Hkisl06内网专线】, type: vmess, server: gz6.any1886.com, port: '37501', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Vmiss01内网专线】, type: vmess, server: gz1.any1886.com, port: '37502', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Vmiss02内网专线】, type: vmess, server: gz2.any1886.com, port: '37502', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Vmiss03内网专线】, type: vmess, server: gz3.any1886.com, port: '37502', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Vmiss04内网专线】, type: vmess, server: gz4.any1886.com, port: '37502', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Vmiss05内网专线】, type: vmess, server: gz5.any1886.com, port: '37502', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰【VIP香港Vmiss06内网专线】, type: vmess, server: gz6.any1886.com, port: '37502', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•台北01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '18170', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•台北02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '18170', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•台北03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '18170', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•台北04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '18170', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•台北05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '18170', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•台北06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '18170', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•桃园01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '18171', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•桃园02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '18171', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•桃园03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '18171', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•桃园04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '18171', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•桃园05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '18171', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•桃园06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '18171', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•花莲01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '18077', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•花莲02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '18077', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•花莲03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '18077', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•花莲04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '18077', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•花莲05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '18077', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•花莲06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '18077', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•高雄01移动内网专线】, type: vmess, server: gz1.any1886.com, port: '28001', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•高雄02移动内网专线】, type: vmess, server: gz2.any1886.com, port: '28001', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•高雄03移动内网专线】, type: vmess, server: gz3.any1886.com, port: '28001', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•高雄04移动内网专线】, type: vmess, server: gz4.any1886.com, port: '28001', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•高雄05移动内网专线】, type: vmess, server: gz5.any1886.com, port: '28001', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇼【台湾•高雄06移动内网专线】, type: vmess, server: gz6.any1886.com, port: '28001', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•纽约01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '28002', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•纽约02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '28002', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•纽约03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '28002', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•纽约04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '28002', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•纽约05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '28002', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•纽约06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '28002', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•费城01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '28003', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•费城02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '28003', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•费城03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '28003', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•费城04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '28003', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•费城05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '28003', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•费城06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '28003', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•洛杉矶01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18009', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•洛杉矶02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18009', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•洛杉矶03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18009', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•洛杉矶04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18009', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•洛杉矶05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18009', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•洛杉矶06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '18009', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•华盛顿01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18010', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•华盛顿02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18010', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•华盛顿03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18010', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•华盛顿04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18010', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•华盛顿05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18010', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•华盛顿06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '18010', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•芝加哥01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18006', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•芝加哥02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18006', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•芝加哥03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18006', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•芝加哥04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18006', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•芝加哥05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18006', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•芝加哥06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '18006', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•迈阿密01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '38012', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•迈阿密02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '38012', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•迈阿密03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '38012', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•迈阿密04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '38012', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•迈阿密05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '38012', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•迈阿密06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '38012', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣迭戈01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣迭戈02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣迭戈03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣迭戈04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣迭戈05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣迭戈06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '38013', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•阿什本01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18026', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•阿什本02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18026', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•阿什本03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18026', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•阿什本04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18026', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•阿什本05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18026', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•阿什本06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '18026', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•奥兰多01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '28027', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•奥兰多02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '28027', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•奥兰多03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '28027', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•奥兰多04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '28027', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•奥兰多05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '28027', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•奥兰多06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '28027', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•凤凰城01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '34582', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•凤凰城02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '34582', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•凤凰城03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '34582', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•凤凰城04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '34582', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•凤凰城05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '34582', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•凤凰城06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '34582', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•波特兰01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '34587', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•波特兰02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '34587', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•波特兰03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '34587', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•波特兰04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '34587', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•波特兰05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '34587', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•波特兰06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '34587', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•西雅图01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18310', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•西雅图02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18310', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•西雅图03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18310', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•西雅图04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18310', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•西雅图05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18310', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•西雅图06支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18310', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣荷西01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18156', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣荷西02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18156', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣荷西03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18156', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣荷西04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18156', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣荷西05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18156', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•圣荷西06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '18156', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•休士敦01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '17081', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•休士敦02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '17081', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•休士敦03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '17081', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•休士敦04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '17081', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•休士敦05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '17081', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•休士敦06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '17081', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•旧金山01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18099', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•旧金山02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18099', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•旧金山03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18099', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•旧金山04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18099', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•旧金山05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18099', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•旧金山06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '18099', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•达拉斯01支持ChatGPT】, type: vmess, server: gz1.any1886.com, port: '18019', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•达拉斯02支持ChatGPT】, type: vmess, server: gz2.any1886.com, port: '18019', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•达拉斯03支持ChatGPT】, type: vmess, server: gz3.any1886.com, port: '18019', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•达拉斯04支持ChatGPT】, type: vmess, server: gz4.any1886.com, port: '18019', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•达拉斯05支持ChatGPT】, type: vmess, server: gz5.any1886.com, port: '18019', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【美国•达拉斯06支持ChatGPT】, type: vmess, server: gz6.any1886.com, port: '18019', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇺🇸【VIP美国01AT&T动态住宅网络】', type: vmess, server: gz1.any1886.com, port: '18029', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇺🇸【VIP美国02AT&T动态住宅网络】', type: vmess, server: gz2.any1886.com, port: '18029', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇺🇸【VIP美国03AT&T动态住宅网络】', type: vmess, server: gz3.any1886.com, port: '18029', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇺🇸【VIP美国04AT&T动态住宅网络】', type: vmess, server: gz4.any1886.com, port: '18029', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇺🇸【VIP美国05AT&T动态住宅网络】', type: vmess, server: gz5.any1886.com, port: '18029', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇺🇸【VIP美国06AT&T动态住宅网络】', type: vmess, server: gz6.any1886.com, port: '18029', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国01Tmobile动态住宅网络】, type: vmess, server: gz1.any1886.com, port: '18931', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国02Tmobile动态住宅网络】, type: vmess, server: gz2.any1886.com, port: '18931', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国03Tmobile动态住宅网络】, type: vmess, server: gz3.any1886.com, port: '18931', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国04Tmobile动态住宅网络】, type: vmess, server: gz4.any1886.com, port: '18931', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国05Tmobile动态住宅网络】, type: vmess, server: gz5.any1886.com, port: '18931', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国06Tmobile动态住宅网络】, type: vmess, server: gz6.any1886.com, port: '18931', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国01Verizon动态住宅网络】, type: vmess, server: gz1.any1886.com, port: '18932', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国02Verizon动态住宅网络】, type: vmess, server: gz2.any1886.com, port: '18932', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国03Verizon动态住宅网络】, type: vmess, server: gz3.any1886.com, port: '18932', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国04Verizon动态住宅网络】, type: vmess, server: gz4.any1886.com, port: '18932', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国05Verizon动态住宅网络】, type: vmess, server: gz5.any1886.com, port: '18932', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸【VIP美国06Verizon动态住宅网络】, type: vmess, server: gz6.any1886.com, port: '18932', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇭【VIP柬埔寨•西哈努克】原生, type: vmess, server: gz10.any1886.com, port: '19160', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇵🇭【VIP菲律宾•马尼拉】原生, type: vmess, server: gz10.any1886.com, port: '18164', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇲🇾【VIP马来西亚•吉隆坡】原生, type: vmess, server: gz10.any1886.com, port: '18060', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇻🇳【VIP越南•河内】原生, type: vmess, server: gz10.any1886.com, port: '18058', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇭【VIP泰国•曼谷】原生, type: vmess, server: gz10.any1886.com, port: '18022', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇩【VIP印度尼西亚•雅加达】原生, type: vmess, server: gz10.any1886.com, port: '18065', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇬🇷【VIP希腊•雅典】原生, type: vmess, server: gz10.any1886.com, port: '18063', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇫🇷【VIP法国•巴黎】原生, type: vmess, server: gz10.any1886.com, port: '19891', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇫🇷【VIP法国•马赛】原生, type: vmess, server: gz10.any1886.com, port: '19890', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇴🇲【VIP阿曼•马斯喀特】原生, type: vmess, server: gz10.any1886.com, port: '18061', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇿🇦【VIP南非•约翰里斯堡】原生, type: vmess, server: gz10.any1886.com, port: '18066', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇿【VIP阿塞拜疆共和国】原生, type: vmess, server: gz10.any1886.com, port: '18057', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇷🇴【VIP罗马尼亚•布加勒斯特】原生, type: vmess, server: gz10.any1886.com, port: '18072', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇧🇩【VIP孟加拉国•达卡】原生, type: vmess, server: gz10.any1886.com, port: '18041', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇨🇦【VIP加拿大•多伦多】原生, type: vmess, server: gz10.any1886.com, port: '18952', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇨🇿【VIP捷克•布拉格】原生, type: vmess, server: gz10.any1886.com, port: '18045', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇨🇱【VIP智利•圣地亚哥】原生, type: vmess, server: gz10.any1886.com, port: '18745', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇲🇩【VIP摩尔多瓦•基希讷乌】原生, type: vmess, server: gz10.any1886.com, port: '18747', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇨🇴【VIP哥伦比亚•波哥大】原生, type: vmess, server: gz10.any1886.com, port: '18748', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇺【VIP澳大利亚•墨尔本】原生, type: vmess, server: gz10.any1886.com, port: '18145', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇺【VIP澳大利亚•悉尼】原生, type: vmess, server: gz10.any1886.com, port: '18845', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇩🇪【VIP德国•法兰克福】原生, type: vmess, server: gz10.any1886.com, port: '18049', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇧🇷【VIP巴西•里约热内卢】原生, type: vmess, server: gz10.any1886.com, port: '18750', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇫🇮【VIP芬兰•赫尔辛基】原生, type: vmess, server: gz10.any1886.com, port: '18522', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇧🇬【VIP保加利亚•东欧】原生, type: vmess, server: gz10.any1886.com, port: '18442', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇱🇻【VIP拉脱维亚•东欧】原生, type: vmess, server: gz10.any1886.com, port: '18043', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇵🇱【VIP波兰•卢布林】原生, type: vmess, server: gz10.any1886.com, port: '18044', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇨🇭【VIP瑞士•苏黎世】原生, type: vmess, server: gz10.any1886.com, port: '18946', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇺【VIP匈牙利•佩斯】原生, type: vmess, server: gz10.any1886.com, port: '18047', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇹【VIP意大利•米兰】原生, type: vmess, server: gz10.any1886.com, port: '18059', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇳【VIP印度•海得拉巴】原生, type: vmess, server: gz10.any1886.com, port: '51950', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇳【VIP印度•班加罗尔】原生, type: vmess, server: gz10.any1886.com, port: '51951', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇳【VIP印度•孟买】原生, type: vmess, server: gz10.any1886.com, port: '51952', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇦【VIP沙特阿拉伯•吉达】原生, type: vmess, server: gz10.any1886.com, port: '51990', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇲【VIP马恩岛•道格拉斯】原生, type: vmess, server: gz10.any1886.com, port: '33035', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇪【VIP阿拉伯联合酋长国•迪拜】原生, type: vmess, server: gz10.any1886.com, port: '18051', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇪【VIP爱尔兰•都柏林】原生, type: vmess, server: gz10.any1886.com, port: '18151', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇬🇧【VIP英国•伦敦市】原生, type: vmess, server: gz10.any1886.com, port: '18053', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇬🇧【VIP英格兰• 伍尔弗汉普顿】原生', type: vmess, server: gz10.any1886.com, port: '18067', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇬🇧【VIP威尔士• 加的夫】原生', type: vmess, server: gz10.any1886.com, port: '18867', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇪【VIP瑞典•斯德哥尔摩】原生, type: vmess, server: gz10.any1886.com, port: '18154', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇲🇽【VIP墨西哥•瓜达拉哈拉】原生, type: vmess, server: gz10.any1886.com, port: '18656', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇷🇺【VIP俄罗斯•莫斯科】原生, type: vmess, server: gz10.any1886.com, port: '18021', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇷🇺【VIP俄罗斯•新西伯利亚】原生, type: vmess, server: gz10.any1886.com, port: '18121', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇱【VIP以色列•耶路撒冷】原生, type: vmess, server: gz10.any1886.com, port: '18221', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇷【VIP土耳其•伊斯坦布尔】原生, type: vmess, server: gz10.any1886.com, port: '18024', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇪🇬【VIP埃及•开罗】原生, type: vmess, server: gz10.any1886.com, port: '47921', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇲🇰【VIP马其顿•斯科普里】原生, type: vmess, server: gz10.any1886.com, port: '57921', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇵🇷【VIP波多黎各•圣胡安】原生, type: vmess, server: gz10.any1886.com, port: '57922', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇷🇸【VIP塞尔维亚•贝尔格莱德】原生, type: vmess, server: gz10.any1886.com, port: '57923', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇬🇹【VIP危地马拉•米斯科】原生, type: vmess, server: gz10.any1886.com, port: '57924', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇵🇪【VIP秘鲁•利马】原生, type: vmess, server: gz10.any1886.com, port: '57925', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇳🇬【VIP尼日利亚•阿布贾】原生, type: vmess, server: gz10.any1886.com, port: '57926', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇪🇨【VIP厄瓜多尔•基多】原生, type: vmess, server: gz10.any1886.com, port: '57927', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇦【VIP乌克兰•哈尔科夫】原生, type: vmess, server: gz10.any1886.com, port: '18124', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇳🇱【VIP荷兰•阿姆斯特丹】原生, type: vmess, server: gz10.any1886.com, port: '28948', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇳🇴【VIP挪威•奥斯陆】原生, type: vmess, server: gz10.any1886.com, port: '18023', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇪🇸【VIP西班牙•马德里】原生, type: vmess, server: gz10.any1886.com, port: '18055', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇸【VIP冰岛•雷克雅未克】原生, type: vmess, server: gz10.any1886.com, port: '18155', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇷【VIP阿根廷•布宜诺斯艾利斯】原生, type: vmess, server: gz10.any1886.com, port: '18749', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇷【VIP阿根廷•科尔多瓦】原生, type: vmess, server: gz10.any1886.com, port: '18020', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇨🇾【VIP塞浦路斯•帕福斯】原生, type: vmess, server: gz10.any1886.com, port: '18120', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇪🇪【VIP爱沙尼亚•塔林】原生, type: vmess, server: gz10.any1886.com, port: '18123', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇧🇪【VIP比利时•布鲁塞尔】原生, type: vmess, server: gz10.any1886.com, port: '18127', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇹【VIP奥地利•维也纳】原生, type: vmess, server: gz10.any1886.com, port: '18129', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇵🇹【VIP葡萄牙•里斯本】原生, type: vmess, server: gz10.any1886.com, port: '18131', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇳🇵【VIP尼泊尔•加德滿都】原生, type: vmess, server: gz10.any1886.com, port: '18133', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇩🇯【VIP吉布提•阿尔塔】原生, type: vmess, server: gz10.any1886.com, port: '18134', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇱🇹【VIP立陶宛•维尔纽斯】原生, type: vmess, server: gz10.any1886.com, port: '18135', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇰🇿【VIP哈萨克斯坦•阿拉木图】原生, type: vmess, server: gz10.any1886.com, port: '31336', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇵🇰【VIP巴基斯坦•卡拉奇】原生, type: vmess, server: gz10.any1886.com, port: '18137', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇬🇪【VIP格鲁吉亚•第比利斯】原生, type: vmess, server: gz10.any1886.com, port: '18139', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+proxy-groups:
+    - { name: 手动选择, type: select, proxies: [自动选择, 故障转移, X86, ARM1, ARM2, HK, '🇭🇰【请定期更新订阅 | 更新于07/15】', 🇭🇰【PLUS套餐以上套餐解锁更多地区】, '🇭🇰【不能用请更新订阅#优先香港节点】', '🇭🇰【官网tiger81.cc tiger82.cc tiger83.cc】', '🇭🇰【群组 https://t.me/TigerClub888】', '🇭🇰【频道 https://t.me/TigerClub666】', 🇭🇰【Hongkong①仅海外用户可用】, 🇭🇰【Hongkong②仅海外用户可用】, 🇸🇬【Singapore①仅海外用户可用】, 🇸🇬【Singapore②仅海外用户可用】, 🇯🇵【Japan①仅海外用户可用】, 🇯🇵【Japan②仅海外用户可用】, 🇯🇵【Japan③仅海外用户可用】, 🇮🇳【India①仅海外用户可用】, 🇮🇳【India②仅海外用户可用】, 🇮🇳【India③仅海外用户可用】, 🇹🇼【Taiwan①仅海外用户可用】, 🇹🇼【Taiwan②仅海外用户可用】, 🇹🇼【Taiwan③仅海外用户可用】, 🇺🇸【America①仅海外用户可用】, 🇺🇸【America②仅海外用户可用】, 🇰🇷【VIP韩国•首尔01移动内网专线】, 🇰🇷【VIP韩国•首尔02移动内网专线】, 🇰🇷【VIP韩国•首尔03移动内网专线】, 🇰🇷【VIP韩国•首尔04移动内网专线】, 🇰🇷【VIP韩国•首尔05移动内网专线】, 🇰🇷【VIP韩国•首尔06移动内网专线】, 🇰🇷【VIP韩国•釜山01移动内网专线】, 🇰🇷【VIP韩国•釜山02移动内网专线】, 🇰🇷【VIP韩国•釜山03移动内网专线】, 🇰🇷【VIP韩国•釜山04移动内网专线】, 🇰🇷【VIP韩国•釜山05移动内网专线】, 🇰🇷【VIP韩国•釜山06移动内网专线】, 🇯🇵【VIP日本•东京01移动内网专线】, 🇯🇵【VIP日本•东京02移动内网专线】, 🇯🇵【VIP日本•东京03移动内网专线】, 🇯🇵【VIP日本•东京04移动内网专线】, 🇯🇵【VIP日本•东京05移动内网专线】, 🇯🇵【VIP日本•东京06移动内网专线】, 🇯🇵【VIP日本•大阪01移动内网专线】, 🇯🇵【VIP日本•大阪02移动内网专线】, 🇯🇵【VIP日本•大阪03移动内网专线】, 🇯🇵【VIP日本•大阪04移动内网专线】, 🇯🇵【VIP日本•大阪05移动内网专线】, 🇯🇵【VIP日本•大阪06移动内网专线】, 🇹🇼【VIP台湾01联通内网专线】, 🇹🇼【VIP台湾02联通内网专线】, 🇹🇼【VIP台湾03联通内网专线】, 🇹🇼【VIP台湾04联通内网专线】, 🇹🇼【VIP台湾05联通内网专线】, 🇹🇼【VIP台湾06联通内网专线】, 🇹🇼【VIP台湾07联通内网专线】, 🇹🇼【VIP台湾08联通内网专线】, 🇯🇵【VIP日本01联通内网专线】, 🇯🇵【VIP日本02联通内网专线】, 🇯🇵【VIP日本03联通内网专线】, 🇯🇵【VIP日本04联通内网专线】, 🇯🇵【VIP日本05联通内网专线】, 🇯🇵【VIP日本06联通内网专线】, 🇯🇵【VIP日本07联通内网专线】, 🇯🇵【VIP日本08联通内网专线】, 🇯🇵【VIP日本•大阪01家庭宽带】, 🇯🇵【VIP日本•大阪02家庭宽带】, 🇯🇵【VIP日本•大阪03家庭宽带】, 🇯🇵【VIP日本•大阪04家庭宽带】, 🇺🇸【VIP美国01联通内网专线】, 🇺🇸【VIP美国02联通内网专线】, 🇺🇸【VIP美国03联通内网专线】, 🇺🇸【VIP美国04联通内网专线】, 🇺🇸【VIP美国05联通内网专线】, 🇺🇸【VIP美国06联通内网专线】, 🇺🇸【VIP美国07联通内网专线】, 🇺🇸【VIP美国08联通内网专线】, 🇸🇬【VIP新加坡01联通内网专线】, 🇸🇬【VIP新加坡02联通内网专线】, 🇸🇬【VIP新加坡03联通内网专线】, 🇸🇬【VIP新加坡04联通内网专线】, 🇸🇬【VIP新加坡05联通内网专线】, 🇸🇬【VIP新加坡06联通内网专线】, 🇸🇬【VIP新加坡07联通内网专线】, 🇸🇬【VIP新加坡08联通内网专线】, 🇭🇰【VIP香港CMHK01静态家庭宽带】, 🇭🇰【VIP香港CMHK02静态家庭宽带】, 🇭🇰【VIP香港CMHK03静态家庭宽带】, 🇭🇰【VIP香港CMHK04静态家庭宽带】, 🇭🇰【VIP香港CMHK05静态家庭宽带】, 🇭🇰【VIP香港CMHK06静态家庭宽带】, 🇭🇰【VIP香港HKBN01动态家庭宽带】, 🇭🇰【VIP香港HKBN02动态家庭宽带】, 🇭🇰【VIP香港HKBN03动态家庭宽带】, 🇭🇰【VIP香港HKBN04动态家庭宽带】, 🇭🇰【VIP香港HKBN05动态家庭宽带】, 🇭🇰【VIP香港HKBN06动态家庭宽带】, 🇭🇰【VIP香港Gcore1内网专线】, 🇭🇰【VIP香港Gcore2内网专线】, 🇭🇰【VIP香港Gcore3内网专线】, 🇭🇰【VIP香港Gcore4内网专线】, 🇭🇰【VIP香港Gcore5内网专线】, 🇭🇰【VIP香港Gcore6内网专线】, 🇭🇰【VIP香港Dmit01内网专线】, 🇭🇰【VIP香港Dmit02内网专线】, 🇭🇰【VIP香港Dmit03内网专线】, 🇭🇰【VIP香港Dmit04内网专线】, 🇭🇰【VIP香港Dmit05内网专线】, 🇭🇰【VIP香港Dmit06内网专线】, 🇭🇰【VIP香港Hkisl01内网专线】, 🇭🇰【VIP香港Hkisl02内网专线】, 🇭🇰【VIP香港Hkisl03内网专线】, 🇭🇰【VIP香港Hkisl04内网专线】, 🇭🇰【VIP香港Hkisl05内网专线】, 🇭🇰【VIP香港Hkisl06内网专线】, 🇭🇰【VIP香港Vmiss01内网专线】, 🇭🇰【VIP香港Vmiss02内网专线】, 🇭🇰【VIP香港Vmiss03内网专线】, 🇭🇰【VIP香港Vmiss04内网专线】, 🇭🇰【VIP香港Vmiss05内网专线】, 🇭🇰【VIP香港Vmiss06内网专线】, 🇹🇼【台湾•台北01移动内网专线】, 🇹🇼【台湾•台北02移动内网专线】, 🇹🇼【台湾•台北03移动内网专线】, 🇹🇼【台湾•台北04移动内网专线】, 🇹🇼【台湾•台北05移动内网专线】, 🇹🇼【台湾•台北06移动内网专线】, 🇹🇼【台湾•桃园01移动内网专线】, 🇹🇼【台湾•桃园02移动内网专线】, 🇹🇼【台湾•桃园03移动内网专线】, 🇹🇼【台湾•桃园04移动内网专线】, 🇹🇼【台湾•桃园05移动内网专线】, 🇹🇼【台湾•桃园06移动内网专线】, 🇹🇼【台湾•花莲01移动内网专线】, 🇹🇼【台湾•花莲02移动内网专线】, 🇹🇼【台湾•花莲03移动内网专线】, 🇹🇼【台湾•花莲04移动内网专线】, 🇹🇼【台湾•花莲05移动内网专线】, 🇹🇼【台湾•花莲06移动内网专线】, 🇹🇼【台湾•高雄01移动内网专线】, 🇹🇼【台湾•高雄02移动内网专线】, 🇹🇼【台湾•高雄03移动内网专线】, 🇹🇼【台湾•高雄04移动内网专线】, 🇹🇼【台湾•高雄05移动内网专线】, 🇹🇼【台湾•高雄06移动内网专线】, 🇺🇸【美国•纽约01支持ChatGPT】, 🇺🇸【美国•纽约02支持ChatGPT】, 🇺🇸【美国•纽约03支持ChatGPT】, 🇺🇸【美国•纽约04支持ChatGPT】, 🇺🇸【美国•纽约05支持ChatGPT】, 🇺🇸【美国•纽约06支持ChatGPT】, 🇺🇸【美国•费城01支持ChatGPT】, 🇺🇸【美国•费城02支持ChatGPT】, 🇺🇸【美国•费城03支持ChatGPT】, 🇺🇸【美国•费城04支持ChatGPT】, 🇺🇸【美国•费城05支持ChatGPT】, 🇺🇸【美国•费城06支持ChatGPT】, 🇺🇸【美国•洛杉矶01支持ChatGPT】, 🇺🇸【美国•洛杉矶02支持ChatGPT】, 🇺🇸【美国•洛杉矶03支持ChatGPT】, 🇺🇸【美国•洛杉矶04支持ChatGPT】, 🇺🇸【美国•洛杉矶05支持ChatGPT】, 🇺🇸【美国•洛杉矶06支持ChatGPT】, 🇺🇸【美国•华盛顿01支持ChatGPT】, 🇺🇸【美国•华盛顿02支持ChatGPT】, 🇺🇸【美国•华盛顿03支持ChatGPT】, 🇺🇸【美国•华盛顿04支持ChatGPT】, 🇺🇸【美国•华盛顿05支持ChatGPT】, 🇺🇸【美国•华盛顿06支持ChatGPT】, 🇺🇸【美国•芝加哥01支持ChatGPT】, 🇺🇸【美国•芝加哥02支持ChatGPT】, 🇺🇸【美国•芝加哥03支持ChatGPT】, 🇺🇸【美国•芝加哥04支持ChatGPT】, 🇺🇸【美国•芝加哥05支持ChatGPT】, 🇺🇸【美国•芝加哥06支持ChatGPT】, 🇺🇸【美国•迈阿密01支持ChatGPT】, 🇺🇸【美国•迈阿密02支持ChatGPT】, 🇺🇸【美国•迈阿密03支持ChatGPT】, 🇺🇸【美国•迈阿密04支持ChatGPT】, 🇺🇸【美国•迈阿密05支持ChatGPT】, 🇺🇸【美国•迈阿密06支持ChatGPT】, 🇺🇸【美国•圣迭戈01支持ChatGPT】, 🇺🇸【美国•圣迭戈02支持ChatGPT】, 🇺🇸【美国•圣迭戈03支持ChatGPT】, 🇺🇸【美国•圣迭戈04支持ChatGPT】, 🇺🇸【美国•圣迭戈05支持ChatGPT】, 🇺🇸【美国•圣迭戈06支持ChatGPT】, 🇺🇸【美国•阿什本01支持ChatGPT】, 🇺🇸【美国•阿什本02支持ChatGPT】, 🇺🇸【美国•阿什本03支持ChatGPT】, 🇺🇸【美国•阿什本04支持ChatGPT】, 🇺🇸【美国•阿什本05支持ChatGPT】, 🇺🇸【美国•阿什本06支持ChatGPT】, 🇺🇸【美国•奥兰多01支持ChatGPT】, 🇺🇸【美国•奥兰多02支持ChatGPT】, 🇺🇸【美国•奥兰多03支持ChatGPT】, 🇺🇸【美国•奥兰多04支持ChatGPT】, 🇺🇸【美国•奥兰多05支持ChatGPT】, 🇺🇸【美国•奥兰多06支持ChatGPT】, 🇺🇸【美国•凤凰城01支持ChatGPT】, 🇺🇸【美国•凤凰城02支持ChatGPT】, 🇺🇸【美国•凤凰城03支持ChatGPT】, 🇺🇸【美国•凤凰城04支持ChatGPT】, 🇺🇸【美国•凤凰城05支持ChatGPT】, 🇺🇸【美国•凤凰城06支持ChatGPT】, 🇺🇸【美国•波特兰01支持ChatGPT】, 🇺🇸【美国•波特兰02支持ChatGPT】, 🇺🇸【美国•波特兰03支持ChatGPT】, 🇺🇸【美国•波特兰04支持ChatGPT】, 🇺🇸【美国•波特兰05支持ChatGPT】, 🇺🇸【美国•波特兰06支持ChatGPT】, 🇺🇸【美国•西雅图01支持ChatGPT】, 🇺🇸【美国•西雅图02支持ChatGPT】, 🇺🇸【美国•西雅图03支持ChatGPT】, 🇺🇸【美国•西雅图04支持ChatGPT】, 🇺🇸【美国•西雅图05支持ChatGPT】, 🇺🇸【美国•西雅图06支持ChatGPT】, 🇺🇸【美国•圣荷西01支持ChatGPT】, 🇺🇸【美国•圣荷西02支持ChatGPT】, 🇺🇸【美国•圣荷西03支持ChatGPT】, 🇺🇸【美国•圣荷西04支持ChatGPT】, 🇺🇸【美国•圣荷西05支持ChatGPT】, 🇺🇸【美国•圣荷西06支持ChatGPT】, 🇺🇸【美国•休士敦01支持ChatGPT】, 🇺🇸【美国•休士敦02支持ChatGPT】, 🇺🇸【美国•休士敦03支持ChatGPT】, 🇺🇸【美国•休士敦04支持ChatGPT】, 🇺🇸【美国•休士敦05支持ChatGPT】, 🇺🇸【美国•休士敦06支持ChatGPT】, 🇺🇸【美国•旧金山01支持ChatGPT】, 🇺🇸【美国•旧金山02支持ChatGPT】, 🇺🇸【美国•旧金山03支持ChatGPT】, 🇺🇸【美国•旧金山04支持ChatGPT】, 🇺🇸【美国•旧金山05支持ChatGPT】, 🇺🇸【美国•旧金山06支持ChatGPT】, 🇺🇸【美国•达拉斯01支持ChatGPT】, 🇺🇸【美国•达拉斯02支持ChatGPT】, 🇺🇸【美国•达拉斯03支持ChatGPT】, 🇺🇸【美国•达拉斯04支持ChatGPT】, 🇺🇸【美国•达拉斯05支持ChatGPT】, 🇺🇸【美国•达拉斯06支持ChatGPT】, '🇺🇸【VIP美国01AT&T动态住宅网络】', '🇺🇸【VIP美国02AT&T动态住宅网络】', '🇺🇸【VIP美国03AT&T动态住宅网络】', '🇺🇸【VIP美国04AT&T动态住宅网络】', '🇺🇸【VIP美国05AT&T动态住宅网络】', '🇺🇸【VIP美国06AT&T动态住宅网络】', 🇺🇸【VIP美国01Tmobile动态住宅网络】, 🇺🇸【VIP美国02Tmobile动态住宅网络】, 🇺🇸【VIP美国03Tmobile动态住宅网络】, 🇺🇸【VIP美国04Tmobile动态住宅网络】, 🇺🇸【VIP美国05Tmobile动态住宅网络】, 🇺🇸【VIP美国06Tmobile动态住宅网络】, 🇺🇸【VIP美国01Verizon动态住宅网络】, 🇺🇸【VIP美国02Verizon动态住宅网络】, 🇺🇸【VIP美国03Verizon动态住宅网络】, 🇺🇸【VIP美国04Verizon动态住宅网络】, 🇺🇸【VIP美国05Verizon动态住宅网络】, 🇺🇸【VIP美国06Verizon动态住宅网络】, 🇰🇭【VIP柬埔寨•西哈努克】原生, 🇵🇭【VIP菲律宾•马尼拉】原生, 🇲🇾【VIP马来西亚•吉隆坡】原生, 🇻🇳【VIP越南•河内】原生, 🇹🇭【VIP泰国•曼谷】原生, 🇮🇩【VIP印度尼西亚•雅加达】原生, 🇬🇷【VIP希腊•雅典】原生, 🇫🇷【VIP法国•巴黎】原生, 🇫🇷【VIP法国•马赛】原生, 🇴🇲【VIP阿曼•马斯喀特】原生, 🇿🇦【VIP南非•约翰里斯堡】原生, 🇦🇿【VIP阿塞拜疆共和国】原生, 🇷🇴【VIP罗马尼亚•布加勒斯特】原生, 🇧🇩【VIP孟加拉国•达卡】原生, 🇨🇦【VIP加拿大•多伦多】原生, 🇨🇿【VIP捷克•布拉格】原生, 🇨🇱【VIP智利•圣地亚哥】原生, 🇲🇩【VIP摩尔多瓦•基希讷乌】原生, 🇨🇴【VIP哥伦比亚•波哥大】原生, 🇦🇺【VIP澳大利亚•墨尔本】原生, 🇦🇺【VIP澳大利亚•悉尼】原生, 🇩🇪【VIP德国•法兰克福】原生, 🇧🇷【VIP巴西•里约热内卢】原生, 🇫🇮【VIP芬兰•赫尔辛基】原生, 🇧🇬【VIP保加利亚•东欧】原生, 🇱🇻【VIP拉脱维亚•东欧】原生, 🇵🇱【VIP波兰•卢布林】原生, 🇨🇭【VIP瑞士•苏黎世】原生, 🇭🇺【VIP匈牙利•佩斯】原生, 🇮🇹【VIP意大利•米兰】原生, 🇮🇳【VIP印度•海得拉巴】原生, 🇮🇳【VIP印度•班加罗尔】原生, 🇮🇳【VIP印度•孟买】原生, 🇸🇦【VIP沙特阿拉伯•吉达】原生, 🇮🇲【VIP马恩岛•道格拉斯】原生, 🇦🇪【VIP阿拉伯联合酋长国•迪拜】原生, 🇮🇪【VIP爱尔兰•都柏林】原生, 🇬🇧【VIP英国•伦敦市】原生, '🇬🇧【VIP英格兰• 伍尔弗汉普顿】原生', '🇬🇧【VIP威尔士• 加的夫】原生', 🇸🇪【VIP瑞典•斯德哥尔摩】原生, 🇲🇽【VIP墨西哥•瓜达拉哈拉】原生, 🇷🇺【VIP俄罗斯•莫斯科】原生, 🇷🇺【VIP俄罗斯•新西伯利亚】原生, 🇮🇱【VIP以色列•耶路撒冷】原生, 🇹🇷【VIP土耳其•伊斯坦布尔】原生, 🇪🇬【VIP埃及•开罗】原生, 🇲🇰【VIP马其顿•斯科普里】原生, 🇵🇷【VIP波多黎各•圣胡安】原生, 🇷🇸【VIP塞尔维亚•贝尔格莱德】原生, 🇬🇹【VIP危地马拉•米斯科】原生, 🇵🇪【VIP秘鲁•利马】原生, 🇳🇬【VIP尼日利亚•阿布贾】原生, 🇪🇨【VIP厄瓜多尔•基多】原生, 🇺🇦【VIP乌克兰•哈尔科夫】原生, 🇳🇱【VIP荷兰•阿姆斯特丹】原生, 🇳🇴【VIP挪威•奥斯陆】原生, 🇪🇸【VIP西班牙•马德里】原生, 🇮🇸【VIP冰岛•雷克雅未克】原生, 🇦🇷【VIP阿根廷•布宜诺斯艾利斯】原生, 🇦🇷【VIP阿根廷•科尔多瓦】原生, 🇨🇾【VIP塞浦路斯•帕福斯】原生, 🇪🇪【VIP爱沙尼亚•塔林】原生, 🇧🇪【VIP比利时•布鲁塞尔】原生, 🇦🇹【VIP奥地利•维也纳】原生, 🇵🇹【VIP葡萄牙•里斯本】原生, 🇳🇵【VIP尼泊尔•加德滿都】原生, 🇩🇯【VIP吉布提•阿尔塔】原生, 🇱🇹【VIP立陶宛•维尔纽斯】原生, 🇰🇿【VIP哈萨克斯坦•阿拉木图】原生, 🇵🇰【VIP巴基斯坦•卡拉奇】原生, 🇬🇪【VIP格鲁吉亚•第比利斯】原生] }
+    - { name: 自动选择, type: url-test, proxies: [X86, ARM1, ARM2, HK, '🇭🇰【请定期更新订阅 | 更新于07/15】', 🇭🇰【PLUS套餐以上套餐解锁更多地区】, '🇭🇰【不能用请更新订阅#优先香港节点】', '🇭🇰【官网tiger81.cc tiger82.cc tiger83.cc】', '🇭🇰【群组 https://t.me/TigerClub888】', '🇭🇰【频道 https://t.me/TigerClub666】', 🇭🇰【Hongkong①仅海外用户可用】, 🇭🇰【Hongkong②仅海外用户可用】, 🇸🇬【Singapore①仅海外用户可用】, 🇸🇬【Singapore②仅海外用户可用】, 🇯🇵【Japan①仅海外用户可用】, 🇯🇵【Japan②仅海外用户可用】, 🇯🇵【Japan③仅海外用户可用】, 🇮🇳【India①仅海外用户可用】, 🇮🇳【India②仅海外用户可用】, 🇮🇳【India③仅海外用户可用】, 🇹🇼【Taiwan①仅海外用户可用】, 🇹🇼【Taiwan②仅海外用户可用】, 🇹🇼【Taiwan③仅海外用户可用】, 🇺🇸【America①仅海外用户可用】, 🇺🇸【America②仅海外用户可用】, 🇰🇷【VIP韩国•首尔01移动内网专线】, 🇰🇷【VIP韩国•首尔02移动内网专线】, 🇰🇷【VIP韩国•首尔03移动内网专线】, 🇰🇷【VIP韩国•首尔04移动内网专线】, 🇰🇷【VIP韩国•首尔05移动内网专线】, 🇰🇷【VIP韩国•首尔06移动内网专线】, 🇰🇷【VIP韩国•釜山01移动内网专线】, 🇰🇷【VIP韩国•釜山02移动内网专线】, 🇰🇷【VIP韩国•釜山03移动内网专线】, 🇰🇷【VIP韩国•釜山04移动内网专线】, 🇰🇷【VIP韩国•釜山05移动内网专线】, 🇰🇷【VIP韩国•釜山06移动内网专线】, 🇯🇵【VIP日本•东京01移动内网专线】, 🇯🇵【VIP日本•东京02移动内网专线】, 🇯🇵【VIP日本•东京03移动内网专线】, 🇯🇵【VIP日本•东京04移动内网专线】, 🇯🇵【VIP日本•东京05移动内网专线】, 🇯🇵【VIP日本•东京06移动内网专线】, 🇯🇵【VIP日本•大阪01移动内网专线】, 🇯🇵【VIP日本•大阪02移动内网专线】, 🇯🇵【VIP日本•大阪03移动内网专线】, 🇯🇵【VIP日本•大阪04移动内网专线】, 🇯🇵【VIP日本•大阪05移动内网专线】, 🇯🇵【VIP日本•大阪06移动内网专线】, 🇹🇼【VIP台湾01联通内网专线】, 🇹🇼【VIP台湾02联通内网专线】, 🇹🇼【VIP台湾03联通内网专线】, 🇹🇼【VIP台湾04联通内网专线】, 🇹🇼【VIP台湾05联通内网专线】, 🇹🇼【VIP台湾06联通内网专线】, 🇹🇼【VIP台湾07联通内网专线】, 🇹🇼【VIP台湾08联通内网专线】, 🇯🇵【VIP日本01联通内网专线】, 🇯🇵【VIP日本02联通内网专线】, 🇯🇵【VIP日本03联通内网专线】, 🇯🇵【VIP日本04联通内网专线】, 🇯🇵【VIP日本05联通内网专线】, 🇯🇵【VIP日本06联通内网专线】, 🇯🇵【VIP日本07联通内网专线】, 🇯🇵【VIP日本08联通内网专线】, 🇯🇵【VIP日本•大阪01家庭宽带】, 🇯🇵【VIP日本•大阪02家庭宽带】, 🇯🇵【VIP日本•大阪03家庭宽带】, 🇯🇵【VIP日本•大阪04家庭宽带】, 🇺🇸【VIP美国01联通内网专线】, 🇺🇸【VIP美国02联通内网专线】, 🇺🇸【VIP美国03联通内网专线】, 🇺🇸【VIP美国04联通内网专线】, 🇺🇸【VIP美国05联通内网专线】, 🇺🇸【VIP美国06联通内网专线】, 🇺🇸【VIP美国07联通内网专线】, 🇺🇸【VIP美国08联通内网专线】, 🇸🇬【VIP新加坡01联通内网专线】, 🇸🇬【VIP新加坡02联通内网专线】, 🇸🇬【VIP新加坡03联通内网专线】, 🇸🇬【VIP新加坡04联通内网专线】, 🇸🇬【VIP新加坡05联通内网专线】, 🇸🇬【VIP新加坡06联通内网专线】, 🇸🇬【VIP新加坡07联通内网专线】, 🇸🇬【VIP新加坡08联通内网专线】, 🇭🇰【VIP香港CMHK01静态家庭宽带】, 🇭🇰【VIP香港CMHK02静态家庭宽带】, 🇭🇰【VIP香港CMHK03静态家庭宽带】, 🇭🇰【VIP香港CMHK04静态家庭宽带】, 🇭🇰【VIP香港CMHK05静态家庭宽带】, 🇭🇰【VIP香港CMHK06静态家庭宽带】, 🇭🇰【VIP香港HKBN01动态家庭宽带】, 🇭🇰【VIP香港HKBN02动态家庭宽带】, 🇭🇰【VIP香港HKBN03动态家庭宽带】, 🇭🇰【VIP香港HKBN04动态家庭宽带】, 🇭🇰【VIP香港HKBN05动态家庭宽带】, 🇭🇰【VIP香港HKBN06动态家庭宽带】, 🇭🇰【VIP香港Gcore1内网专线】, 🇭🇰【VIP香港Gcore2内网专线】, 🇭🇰【VIP香港Gcore3内网专线】, 🇭🇰【VIP香港Gcore4内网专线】, 🇭🇰【VIP香港Gcore5内网专线】, 🇭🇰【VIP香港Gcore6内网专线】, 🇭🇰【VIP香港Dmit01内网专线】, 🇭🇰【VIP香港Dmit02内网专线】, 🇭🇰【VIP香港Dmit03内网专线】, 🇭🇰【VIP香港Dmit04内网专线】, 🇭🇰【VIP香港Dmit05内网专线】, 🇭🇰【VIP香港Dmit06内网专线】, 🇭🇰【VIP香港Hkisl01内网专线】, 🇭🇰【VIP香港Hkisl02内网专线】, 🇭🇰【VIP香港Hkisl03内网专线】, 🇭🇰【VIP香港Hkisl04内网专线】, 🇭🇰【VIP香港Hkisl05内网专线】, 🇭🇰【VIP香港Hkisl06内网专线】, 🇭🇰【VIP香港Vmiss01内网专线】, 🇭🇰【VIP香港Vmiss02内网专线】, 🇭🇰【VIP香港Vmiss03内网专线】, 🇭🇰【VIP香港Vmiss04内网专线】, 🇭🇰【VIP香港Vmiss05内网专线】, 🇭🇰【VIP香港Vmiss06内网专线】, 🇹🇼【台湾•台北01移动内网专线】, 🇹🇼【台湾•台北02移动内网专线】, 🇹🇼【台湾•台北03移动内网专线】, 🇹🇼【台湾•台北04移动内网专线】, 🇹🇼【台湾•台北05移动内网专线】, 🇹🇼【台湾•台北06移动内网专线】, 🇹🇼【台湾•桃园01移动内网专线】, 🇹🇼【台湾•桃园02移动内网专线】, 🇹🇼【台湾•桃园03移动内网专线】, 🇹🇼【台湾•桃园04移动内网专线】, 🇹🇼【台湾•桃园05移动内网专线】, 🇹🇼【台湾•桃园06移动内网专线】, 🇹🇼【台湾•花莲01移动内网专线】, 🇹🇼【台湾•花莲02移动内网专线】, 🇹🇼【台湾•花莲03移动内网专线】, 🇹🇼【台湾•花莲04移动内网专线】, 🇹🇼【台湾•花莲05移动内网专线】, 🇹🇼【台湾•花莲06移动内网专线】, 🇹🇼【台湾•高雄01移动内网专线】, 🇹🇼【台湾•高雄02移动内网专线】, 🇹🇼【台湾•高雄03移动内网专线】, 🇹🇼【台湾•高雄04移动内网专线】, 🇹🇼【台湾•高雄05移动内网专线】, 🇹🇼【台湾•高雄06移动内网专线】, 🇺🇸【美国•纽约01支持ChatGPT】, 🇺🇸【美国•纽约02支持ChatGPT】, 🇺🇸【美国•纽约03支持ChatGPT】, 🇺🇸【美国•纽约04支持ChatGPT】, 🇺🇸【美国•纽约05支持ChatGPT】, 🇺🇸【美国•纽约06支持ChatGPT】, 🇺🇸【美国•费城01支持ChatGPT】, 🇺🇸【美国•费城02支持ChatGPT】, 🇺🇸【美国•费城03支持ChatGPT】, 🇺🇸【美国•费城04支持ChatGPT】, 🇺🇸【美国•费城05支持ChatGPT】, 🇺🇸【美国•费城06支持ChatGPT】, 🇺🇸【美国•洛杉矶01支持ChatGPT】, 🇺🇸【美国•洛杉矶02支持ChatGPT】, 🇺🇸【美国•洛杉矶03支持ChatGPT】, 🇺🇸【美国•洛杉矶04支持ChatGPT】, 🇺🇸【美国•洛杉矶05支持ChatGPT】, 🇺🇸【美国•洛杉矶06支持ChatGPT】, 🇺🇸【美国•华盛顿01支持ChatGPT】, 🇺🇸【美国•华盛顿02支持ChatGPT】, 🇺🇸【美国•华盛顿03支持ChatGPT】, 🇺🇸【美国•华盛顿04支持ChatGPT】, 🇺🇸【美国•华盛顿05支持ChatGPT】, 🇺🇸【美国•华盛顿06支持ChatGPT】, 🇺🇸【美国•芝加哥01支持ChatGPT】, 🇺🇸【美国•芝加哥02支持ChatGPT】, 🇺🇸【美国•芝加哥03支持ChatGPT】, 🇺🇸【美国•芝加哥04支持ChatGPT】, 🇺🇸【美国•芝加哥05支持ChatGPT】, 🇺🇸【美国•芝加哥06支持ChatGPT】, 🇺🇸【美国•迈阿密01支持ChatGPT】, 🇺🇸【美国•迈阿密02支持ChatGPT】, 🇺🇸【美国•迈阿密03支持ChatGPT】, 🇺🇸【美国•迈阿密04支持ChatGPT】, 🇺🇸【美国•迈阿密05支持ChatGPT】, 🇺🇸【美国•迈阿密06支持ChatGPT】, 🇺🇸【美国•圣迭戈01支持ChatGPT】, 🇺🇸【美国•圣迭戈02支持ChatGPT】, 🇺🇸【美国•圣迭戈03支持ChatGPT】, 🇺🇸【美国•圣迭戈04支持ChatGPT】, 🇺🇸【美国•圣迭戈05支持ChatGPT】, 🇺🇸【美国•圣迭戈06支持ChatGPT】, 🇺🇸【美国•阿什本01支持ChatGPT】, 🇺🇸【美国•阿什本02支持ChatGPT】, 🇺🇸【美国•阿什本03支持ChatGPT】, 🇺🇸【美国•阿什本04支持ChatGPT】, 🇺🇸【美国•阿什本05支持ChatGPT】, 🇺🇸【美国•阿什本06支持ChatGPT】, 🇺🇸【美国•奥兰多01支持ChatGPT】, 🇺🇸【美国•奥兰多02支持ChatGPT】, 🇺🇸【美国•奥兰多03支持ChatGPT】, 🇺🇸【美国•奥兰多04支持ChatGPT】, 🇺🇸【美国•奥兰多05支持ChatGPT】, 🇺🇸【美国•奥兰多06支持ChatGPT】, 🇺🇸【美国•凤凰城01支持ChatGPT】, 🇺🇸【美国•凤凰城02支持ChatGPT】, 🇺🇸【美国•凤凰城03支持ChatGPT】, 🇺🇸【美国•凤凰城04支持ChatGPT】, 🇺🇸【美国•凤凰城05支持ChatGPT】, 🇺🇸【美国•凤凰城06支持ChatGPT】, 🇺🇸【美国•波特兰01支持ChatGPT】, 🇺🇸【美国•波特兰02支持ChatGPT】, 🇺🇸【美国•波特兰03支持ChatGPT】, 🇺🇸【美国•波特兰04支持ChatGPT】, 🇺🇸【美国•波特兰05支持ChatGPT】, 🇺🇸【美国•波特兰06支持ChatGPT】, 🇺🇸【美国•西雅图01支持ChatGPT】, 🇺🇸【美国•西雅图02支持ChatGPT】, 🇺🇸【美国•西雅图03支持ChatGPT】, 🇺🇸【美国•西雅图04支持ChatGPT】, 🇺🇸【美国•西雅图05支持ChatGPT】, 🇺🇸【美国•西雅图06支持ChatGPT】, 🇺🇸【美国•圣荷西01支持ChatGPT】, 🇺🇸【美国•圣荷西02支持ChatGPT】, 🇺🇸【美国•圣荷西03支持ChatGPT】, 🇺🇸【美国•圣荷西04支持ChatGPT】, 🇺🇸【美国•圣荷西05支持ChatGPT】, 🇺🇸【美国•圣荷西06支持ChatGPT】, 🇺🇸【美国•休士敦01支持ChatGPT】, 🇺🇸【美国•休士敦02支持ChatGPT】, 🇺🇸【美国•休士敦03支持ChatGPT】, 🇺🇸【美国•休士敦04支持ChatGPT】, 🇺🇸【美国•休士敦05支持ChatGPT】, 🇺🇸【美国•休士敦06支持ChatGPT】, 🇺🇸【美国•旧金山01支持ChatGPT】, 🇺🇸【美国•旧金山02支持ChatGPT】, 🇺🇸【美国•旧金山03支持ChatGPT】, 🇺🇸【美国•旧金山04支持ChatGPT】, 🇺🇸【美国•旧金山05支持ChatGPT】, 🇺🇸【美国•旧金山06支持ChatGPT】, 🇺🇸【美国•达拉斯01支持ChatGPT】, 🇺🇸【美国•达拉斯02支持ChatGPT】, 🇺🇸【美国•达拉斯03支持ChatGPT】, 🇺🇸【美国•达拉斯04支持ChatGPT】, 🇺🇸【美国•达拉斯05支持ChatGPT】, 🇺🇸【美国•达拉斯06支持ChatGPT】, '🇺🇸【VIP美国01AT&T动态住宅网络】', '🇺🇸【VIP美国02AT&T动态住宅网络】', '🇺🇸【VIP美国03AT&T动态住宅网络】', '🇺🇸【VIP美国04AT&T动态住宅网络】', '🇺🇸【VIP美国05AT&T动态住宅网络】', '🇺🇸【VIP美国06AT&T动态住宅网络】', 🇺🇸【VIP美国01Tmobile动态住宅网络】, 🇺🇸【VIP美国02Tmobile动态住宅网络】, 🇺🇸【VIP美国03Tmobile动态住宅网络】, 🇺🇸【VIP美国04Tmobile动态住宅网络】, 🇺🇸【VIP美国05Tmobile动态住宅网络】, 🇺🇸【VIP美国06Tmobile动态住宅网络】, 🇺🇸【VIP美国01Verizon动态住宅网络】, 🇺🇸【VIP美国02Verizon动态住宅网络】, 🇺🇸【VIP美国03Verizon动态住宅网络】, 🇺🇸【VIP美国04Verizon动态住宅网络】, 🇺🇸【VIP美国05Verizon动态住宅网络】, 🇺🇸【VIP美国06Verizon动态住宅网络】, 🇰🇭【VIP柬埔寨•西哈努克】原生, 🇵🇭【VIP菲律宾•马尼拉】原生, 🇲🇾【VIP马来西亚•吉隆坡】原生, 🇻🇳【VIP越南•河内】原生, 🇹🇭【VIP泰国•曼谷】原生, 🇮🇩【VIP印度尼西亚•雅加达】原生, 🇬🇷【VIP希腊•雅典】原生, 🇫🇷【VIP法国•巴黎】原生, 🇫🇷【VIP法国•马赛】原生, 🇴🇲【VIP阿曼•马斯喀特】原生, 🇿🇦【VIP南非•约翰里斯堡】原生, 🇦🇿【VIP阿塞拜疆共和国】原生, 🇷🇴【VIP罗马尼亚•布加勒斯特】原生, 🇧🇩【VIP孟加拉国•达卡】原生, 🇨🇦【VIP加拿大•多伦多】原生, 🇨🇿【VIP捷克•布拉格】原生, 🇨🇱【VIP智利•圣地亚哥】原生, 🇲🇩【VIP摩尔多瓦•基希讷乌】原生, 🇨🇴【VIP哥伦比亚•波哥大】原生, 🇦🇺【VIP澳大利亚•墨尔本】原生, 🇦🇺【VIP澳大利亚•悉尼】原生, 🇩🇪【VIP德国•法兰克福】原生, 🇧🇷【VIP巴西•里约热内卢】原生, 🇫🇮【VIP芬兰•赫尔辛基】原生, 🇧🇬【VIP保加利亚•东欧】原生, 🇱🇻【VIP拉脱维亚•东欧】原生, 🇵🇱【VIP波兰•卢布林】原生, 🇨🇭【VIP瑞士•苏黎世】原生, 🇭🇺【VIP匈牙利•佩斯】原生, 🇮🇹【VIP意大利•米兰】原生, 🇮🇳【VIP印度•海得拉巴】原生, 🇮🇳【VIP印度•班加罗尔】原生, 🇮🇳【VIP印度•孟买】原生, 🇸🇦【VIP沙特阿拉伯•吉达】原生, 🇮🇲【VIP马恩岛•道格拉斯】原生, 🇦🇪【VIP阿拉伯联合酋长国•迪拜】原生, 🇮🇪【VIP爱尔兰•都柏林】原生, 🇬🇧【VIP英国•伦敦市】原生, '🇬🇧【VIP英格兰• 伍尔弗汉普顿】原生', '🇬🇧【VIP威尔士• 加的夫】原生', 🇸🇪【VIP瑞典•斯德哥尔摩】原生, 🇲🇽【VIP墨西哥•瓜达拉哈拉】原生, 🇷🇺【VIP俄罗斯•莫斯科】原生, 🇷🇺【VIP俄罗斯•新西伯利亚】原生, 🇮🇱【VIP以色列•耶路撒冷】原生, 🇹🇷【VIP土耳其•伊斯坦布尔】原生, 🇪🇬【VIP埃及•开罗】原生, 🇲🇰【VIP马其顿•斯科普里】原生, 🇵🇷【VIP波多黎各•圣胡安】原生, 🇷🇸【VIP塞尔维亚•贝尔格莱德】原生, 🇬🇹【VIP危地马拉•米斯科】原生, 🇵🇪【VIP秘鲁•利马】原生, 🇳🇬【VIP尼日利亚•阿布贾】原生, 🇪🇨【VIP厄瓜多尔•基多】原生, 🇺🇦【VIP乌克兰•哈尔科夫】原生, 🇳🇱【VIP荷兰•阿姆斯特丹】原生, 🇳🇴【VIP挪威•奥斯陆】原生, 🇪🇸【VIP西班牙•马德里】原生, 🇮🇸【VIP冰岛•雷克雅未克】原生, 🇦🇷【VIP阿根廷•布宜诺斯艾利斯】原生, 🇦🇷【VIP阿根廷•科尔多瓦】原生, 🇨🇾【VIP塞浦路斯•帕福斯】原生, 🇪🇪【VIP爱沙尼亚•塔林】原生, 🇧🇪【VIP比利时•布鲁塞尔】原生, 🇦🇹【VIP奥地利•维也纳】原生, 🇵🇹【VIP葡萄牙•里斯本】原生, 🇳🇵【VIP尼泊尔•加德滿都】原生, 🇩🇯【VIP吉布提•阿尔塔】原生, 🇱🇹【VIP立陶宛•维尔纽斯】原生, 🇰🇿【VIP哈萨克斯坦•阿拉木图】原生, 🇵🇰【VIP巴基斯坦•卡拉奇】原生, 🇬🇪【VIP格鲁吉亚•第比利斯】原生], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
+    - { name: 故障转移, type: fallback, proxies: [X86, ARM1, ARM2, HK, '🇭🇰【请定期更新订阅 | 更新于07/15】', 🇭🇰【PLUS套餐以上套餐解锁更多地区】, '🇭🇰【不能用请更新订阅#优先香港节点】', '🇭🇰【官网tiger81.cc tiger82.cc tiger83.cc】', '🇭🇰【群组 https://t.me/TigerClub888】', '🇭🇰【频道 https://t.me/TigerClub666】', 🇭🇰【Hongkong①仅海外用户可用】, 🇭🇰【Hongkong②仅海外用户可用】, 🇸🇬【Singapore①仅海外用户可用】, 🇸🇬【Singapore②仅海外用户可用】, 🇯🇵【Japan①仅海外用户可用】, 🇯🇵【Japan②仅海外用户可用】, 🇯🇵【Japan③仅海外用户可用】, 🇮🇳【India①仅海外用户可用】, 🇮🇳【India②仅海外用户可用】, 🇮🇳【India③仅海外用户可用】, 🇹🇼【Taiwan①仅海外用户可用】, 🇹🇼【Taiwan②仅海外用户可用】, 🇹🇼【Taiwan③仅海外用户可用】, 🇺🇸【America①仅海外用户可用】, 🇺🇸【America②仅海外用户可用】, 🇰🇷【VIP韩国•首尔01移动内网专线】, 🇰🇷【VIP韩国•首尔02移动内网专线】, 🇰🇷【VIP韩国•首尔03移动内网专线】, 🇰🇷【VIP韩国•首尔04移动内网专线】, 🇰🇷【VIP韩国•首尔05移动内网专线】, 🇰🇷【VIP韩国•首尔06移动内网专线】, 🇰🇷【VIP韩国•釜山01移动内网专线】, 🇰🇷【VIP韩国•釜山02移动内网专线】, 🇰🇷【VIP韩国•釜山03移动内网专线】, 🇰🇷【VIP韩国•釜山04移动内网专线】, 🇰🇷【VIP韩国•釜山05移动内网专线】, 🇰🇷【VIP韩国•釜山06移动内网专线】, 🇯🇵【VIP日本•东京01移动内网专线】, 🇯🇵【VIP日本•东京02移动内网专线】, 🇯🇵【VIP日本•东京03移动内网专线】, 🇯🇵【VIP日本•东京04移动内网专线】, 🇯🇵【VIP日本•东京05移动内网专线】, 🇯🇵【VIP日本•东京06移动内网专线】, 🇯🇵【VIP日本•大阪01移动内网专线】, 🇯🇵【VIP日本•大阪02移动内网专线】, 🇯🇵【VIP日本•大阪03移动内网专线】, 🇯🇵【VIP日本•大阪04移动内网专线】, 🇯🇵【VIP日本•大阪05移动内网专线】, 🇯🇵【VIP日本•大阪06移动内网专线】, 🇹🇼【VIP台湾01联通内网专线】, 🇹🇼【VIP台湾02联通内网专线】, 🇹🇼【VIP台湾03联通内网专线】, 🇹🇼【VIP台湾04联通内网专线】, 🇹🇼【VIP台湾05联通内网专线】, 🇹🇼【VIP台湾06联通内网专线】, 🇹🇼【VIP台湾07联通内网专线】, 🇹🇼【VIP台湾08联通内网专线】, 🇯🇵【VIP日本01联通内网专线】, 🇯🇵【VIP日本02联通内网专线】, 🇯🇵【VIP日本03联通内网专线】, 🇯🇵【VIP日本04联通内网专线】, 🇯🇵【VIP日本05联通内网专线】, 🇯🇵【VIP日本06联通内网专线】, 🇯🇵【VIP日本07联通内网专线】, 🇯🇵【VIP日本08联通内网专线】, 🇯🇵【VIP日本•大阪01家庭宽带】, 🇯🇵【VIP日本•大阪02家庭宽带】, 🇯🇵【VIP日本•大阪03家庭宽带】, 🇯🇵【VIP日本•大阪04家庭宽带】, 🇺🇸【VIP美国01联通内网专线】, 🇺🇸【VIP美国02联通内网专线】, 🇺🇸【VIP美国03联通内网专线】, 🇺🇸【VIP美国04联通内网专线】, 🇺🇸【VIP美国05联通内网专线】, 🇺🇸【VIP美国06联通内网专线】, 🇺🇸【VIP美国07联通内网专线】, 🇺🇸【VIP美国08联通内网专线】, 🇸🇬【VIP新加坡01联通内网专线】, 🇸🇬【VIP新加坡02联通内网专线】, 🇸🇬【VIP新加坡03联通内网专线】, 🇸🇬【VIP新加坡04联通内网专线】, 🇸🇬【VIP新加坡05联通内网专线】, 🇸🇬【VIP新加坡06联通内网专线】, 🇸🇬【VIP新加坡07联通内网专线】, 🇸🇬【VIP新加坡08联通内网专线】, 🇭🇰【VIP香港CMHK01静态家庭宽带】, 🇭🇰【VIP香港CMHK02静态家庭宽带】, 🇭🇰【VIP香港CMHK03静态家庭宽带】, 🇭🇰【VIP香港CMHK04静态家庭宽带】, 🇭🇰【VIP香港CMHK05静态家庭宽带】, 🇭🇰【VIP香港CMHK06静态家庭宽带】, 🇭🇰【VIP香港HKBN01动态家庭宽带】, 🇭🇰【VIP香港HKBN02动态家庭宽带】, 🇭🇰【VIP香港HKBN03动态家庭宽带】, 🇭🇰【VIP香港HKBN04动态家庭宽带】, 🇭🇰【VIP香港HKBN05动态家庭宽带】, 🇭🇰【VIP香港HKBN06动态家庭宽带】, 🇭🇰【VIP香港Gcore1内网专线】, 🇭🇰【VIP香港Gcore2内网专线】, 🇭🇰【VIP香港Gcore3内网专线】, 🇭🇰【VIP香港Gcore4内网专线】, 🇭🇰【VIP香港Gcore5内网专线】, 🇭🇰【VIP香港Gcore6内网专线】, 🇭🇰【VIP香港Dmit01内网专线】, 🇭🇰【VIP香港Dmit02内网专线】, 🇭🇰【VIP香港Dmit03内网专线】, 🇭🇰【VIP香港Dmit04内网专线】, 🇭🇰【VIP香港Dmit05内网专线】, 🇭🇰【VIP香港Dmit06内网专线】, 🇭🇰【VIP香港Hkisl01内网专线】, 🇭🇰【VIP香港Hkisl02内网专线】, 🇭🇰【VIP香港Hkisl03内网专线】, 🇭🇰【VIP香港Hkisl04内网专线】, 🇭🇰【VIP香港Hkisl05内网专线】, 🇭🇰【VIP香港Hkisl06内网专线】, 🇭🇰【VIP香港Vmiss01内网专线】, 🇭🇰【VIP香港Vmiss02内网专线】, 🇭🇰【VIP香港Vmiss03内网专线】, 🇭🇰【VIP香港Vmiss04内网专线】, 🇭🇰【VIP香港Vmiss05内网专线】, 🇭🇰【VIP香港Vmiss06内网专线】, 🇹🇼【台湾•台北01移动内网专线】, 🇹🇼【台湾•台北02移动内网专线】, 🇹🇼【台湾•台北03移动内网专线】, 🇹🇼【台湾•台北04移动内网专线】, 🇹🇼【台湾•台北05移动内网专线】, 🇹🇼【台湾•台北06移动内网专线】, 🇹🇼【台湾•桃园01移动内网专线】, 🇹🇼【台湾•桃园02移动内网专线】, 🇹🇼【台湾•桃园03移动内网专线】, 🇹🇼【台湾•桃园04移动内网专线】, 🇹🇼【台湾•桃园05移动内网专线】, 🇹🇼【台湾•桃园06移动内网专线】, 🇹🇼【台湾•花莲01移动内网专线】, 🇹🇼【台湾•花莲02移动内网专线】, 🇹🇼【台湾•花莲03移动内网专线】, 🇹🇼【台湾•花莲04移动内网专线】, 🇹🇼【台湾•花莲05移动内网专线】, 🇹🇼【台湾•花莲06移动内网专线】, 🇹🇼【台湾•高雄01移动内网专线】, 🇹🇼【台湾•高雄02移动内网专线】, 🇹🇼【台湾•高雄03移动内网专线】, 🇹🇼【台湾•高雄04移动内网专线】, 🇹🇼【台湾•高雄05移动内网专线】, 🇹🇼【台湾•高雄06移动内网专线】, 🇺🇸【美国•纽约01支持ChatGPT】, 🇺🇸【美国•纽约02支持ChatGPT】, 🇺🇸【美国•纽约03支持ChatGPT】, 🇺🇸【美国•纽约04支持ChatGPT】, 🇺🇸【美国•纽约05支持ChatGPT】, 🇺🇸【美国•纽约06支持ChatGPT】, 🇺🇸【美国•费城01支持ChatGPT】, 🇺🇸【美国•费城02支持ChatGPT】, 🇺🇸【美国•费城03支持ChatGPT】, 🇺🇸【美国•费城04支持ChatGPT】, 🇺🇸【美国•费城05支持ChatGPT】, 🇺🇸【美国•费城06支持ChatGPT】, 🇺🇸【美国•洛杉矶01支持ChatGPT】, 🇺🇸【美国•洛杉矶02支持ChatGPT】, 🇺🇸【美国•洛杉矶03支持ChatGPT】, 🇺🇸【美国•洛杉矶04支持ChatGPT】, 🇺🇸【美国•洛杉矶05支持ChatGPT】, 🇺🇸【美国•洛杉矶06支持ChatGPT】, 🇺🇸【美国•华盛顿01支持ChatGPT】, 🇺🇸【美国•华盛顿02支持ChatGPT】, 🇺🇸【美国•华盛顿03支持ChatGPT】, 🇺🇸【美国•华盛顿04支持ChatGPT】, 🇺🇸【美国•华盛顿05支持ChatGPT】, 🇺🇸【美国•华盛顿06支持ChatGPT】, 🇺🇸【美国•芝加哥01支持ChatGPT】, 🇺🇸【美国•芝加哥02支持ChatGPT】, 🇺🇸【美国•芝加哥03支持ChatGPT】, 🇺🇸【美国•芝加哥04支持ChatGPT】, 🇺🇸【美国•芝加哥05支持ChatGPT】, 🇺🇸【美国•芝加哥06支持ChatGPT】, 🇺🇸【美国•迈阿密01支持ChatGPT】, 🇺🇸【美国•迈阿密02支持ChatGPT】, 🇺🇸【美国•迈阿密03支持ChatGPT】, 🇺🇸【美国•迈阿密04支持ChatGPT】, 🇺🇸【美国•迈阿密05支持ChatGPT】, 🇺🇸【美国•迈阿密06支持ChatGPT】, 🇺🇸【美国•圣迭戈01支持ChatGPT】, 🇺🇸【美国•圣迭戈02支持ChatGPT】, 🇺🇸【美国•圣迭戈03支持ChatGPT】, 🇺🇸【美国•圣迭戈04支持ChatGPT】, 🇺🇸【美国•圣迭戈05支持ChatGPT】, 🇺🇸【美国•圣迭戈06支持ChatGPT】, 🇺🇸【美国•阿什本01支持ChatGPT】, 🇺🇸【美国•阿什本02支持ChatGPT】, 🇺🇸【美国•阿什本03支持ChatGPT】, 🇺🇸【美国•阿什本04支持ChatGPT】, 🇺🇸【美国•阿什本05支持ChatGPT】, 🇺🇸【美国•阿什本06支持ChatGPT】, 🇺🇸【美国•奥兰多01支持ChatGPT】, 🇺🇸【美国•奥兰多02支持ChatGPT】, 🇺🇸【美国•奥兰多03支持ChatGPT】, 🇺🇸【美国•奥兰多04支持ChatGPT】, 🇺🇸【美国•奥兰多05支持ChatGPT】, 🇺🇸【美国•奥兰多06支持ChatGPT】, 🇺🇸【美国•凤凰城01支持ChatGPT】, 🇺🇸【美国•凤凰城02支持ChatGPT】, 🇺🇸【美国•凤凰城03支持ChatGPT】, 🇺🇸【美国•凤凰城04支持ChatGPT】, 🇺🇸【美国•凤凰城05支持ChatGPT】, 🇺🇸【美国•凤凰城06支持ChatGPT】, 🇺🇸【美国•波特兰01支持ChatGPT】, 🇺🇸【美国•波特兰02支持ChatGPT】, 🇺🇸【美国•波特兰03支持ChatGPT】, 🇺🇸【美国•波特兰04支持ChatGPT】, 🇺🇸【美国•波特兰05支持ChatGPT】, 🇺🇸【美国•波特兰06支持ChatGPT】, 🇺🇸【美国•西雅图01支持ChatGPT】, 🇺🇸【美国•西雅图02支持ChatGPT】, 🇺🇸【美国•西雅图03支持ChatGPT】, 🇺🇸【美国•西雅图04支持ChatGPT】, 🇺🇸【美国•西雅图05支持ChatGPT】, 🇺🇸【美国•西雅图06支持ChatGPT】, 🇺🇸【美国•圣荷西01支持ChatGPT】, 🇺🇸【美国•圣荷西02支持ChatGPT】, 🇺🇸【美国•圣荷西03支持ChatGPT】, 🇺🇸【美国•圣荷西04支持ChatGPT】, 🇺🇸【美国•圣荷西05支持ChatGPT】, 🇺🇸【美国•圣荷西06支持ChatGPT】, 🇺🇸【美国•休士敦01支持ChatGPT】, 🇺🇸【美国•休士敦02支持ChatGPT】, 🇺🇸【美国•休士敦03支持ChatGPT】, 🇺🇸【美国•休士敦04支持ChatGPT】, 🇺🇸【美国•休士敦05支持ChatGPT】, 🇺🇸【美国•休士敦06支持ChatGPT】, 🇺🇸【美国•旧金山01支持ChatGPT】, 🇺🇸【美国•旧金山02支持ChatGPT】, 🇺🇸【美国•旧金山03支持ChatGPT】, 🇺🇸【美国•旧金山04支持ChatGPT】, 🇺🇸【美国•旧金山05支持ChatGPT】, 🇺🇸【美国•旧金山06支持ChatGPT】, 🇺🇸【美国•达拉斯01支持ChatGPT】, 🇺🇸【美国•达拉斯02支持ChatGPT】, 🇺🇸【美国•达拉斯03支持ChatGPT】, 🇺🇸【美国•达拉斯04支持ChatGPT】, 🇺🇸【美国•达拉斯05支持ChatGPT】, 🇺🇸【美国•达拉斯06支持ChatGPT】, '🇺🇸【VIP美国01AT&T动态住宅网络】', '🇺🇸【VIP美国02AT&T动态住宅网络】', '🇺🇸【VIP美国03AT&T动态住宅网络】', '🇺🇸【VIP美国04AT&T动态住宅网络】', '🇺🇸【VIP美国05AT&T动态住宅网络】', '🇺🇸【VIP美国06AT&T动态住宅网络】', 🇺🇸【VIP美国01Tmobile动态住宅网络】, 🇺🇸【VIP美国02Tmobile动态住宅网络】, 🇺🇸【VIP美国03Tmobile动态住宅网络】, 🇺🇸【VIP美国04Tmobile动态住宅网络】, 🇺🇸【VIP美国05Tmobile动态住宅网络】, 🇺🇸【VIP美国06Tmobile动态住宅网络】, 🇺🇸【VIP美国01Verizon动态住宅网络】, 🇺🇸【VIP美国02Verizon动态住宅网络】, 🇺🇸【VIP美国03Verizon动态住宅网络】, 🇺🇸【VIP美国04Verizon动态住宅网络】, 🇺🇸【VIP美国05Verizon动态住宅网络】, 🇺🇸【VIP美国06Verizon动态住宅网络】, 🇰🇭【VIP柬埔寨•西哈努克】原生, 🇵🇭【VIP菲律宾•马尼拉】原生, 🇲🇾【VIP马来西亚•吉隆坡】原生, 🇻🇳【VIP越南•河内】原生, 🇹🇭【VIP泰国•曼谷】原生, 🇮🇩【VIP印度尼西亚•雅加达】原生, 🇬🇷【VIP希腊•雅典】原生, 🇫🇷【VIP法国•巴黎】原生, 🇫🇷【VIP法国•马赛】原生, 🇴🇲【VIP阿曼•马斯喀特】原生, 🇿🇦【VIP南非•约翰里斯堡】原生, 🇦🇿【VIP阿塞拜疆共和国】原生, 🇷🇴【VIP罗马尼亚•布加勒斯特】原生, 🇧🇩【VIP孟加拉国•达卡】原生, 🇨🇦【VIP加拿大•多伦多】原生, 🇨🇿【VIP捷克•布拉格】原生, 🇨🇱【VIP智利•圣地亚哥】原生, 🇲🇩【VIP摩尔多瓦•基希讷乌】原生, 🇨🇴【VIP哥伦比亚•波哥大】原生, 🇦🇺【VIP澳大利亚•墨尔本】原生, 🇦🇺【VIP澳大利亚•悉尼】原生, 🇩🇪【VIP德国•法兰克福】原生, 🇧🇷【VIP巴西•里约热内卢】原生, 🇫🇮【VIP芬兰•赫尔辛基】原生, 🇧🇬【VIP保加利亚•东欧】原生, 🇱🇻【VIP拉脱维亚•东欧】原生, 🇵🇱【VIP波兰•卢布林】原生, 🇨🇭【VIP瑞士•苏黎世】原生, 🇭🇺【VIP匈牙利•佩斯】原生, 🇮🇹【VIP意大利•米兰】原生, 🇮🇳【VIP印度•海得拉巴】原生, 🇮🇳【VIP印度•班加罗尔】原生, 🇮🇳【VIP印度•孟买】原生, 🇸🇦【VIP沙特阿拉伯•吉达】原生, 🇮🇲【VIP马恩岛•道格拉斯】原生, 🇦🇪【VIP阿拉伯联合酋长国•迪拜】原生, 🇮🇪【VIP爱尔兰•都柏林】原生, 🇬🇧【VIP英国•伦敦市】原生, '🇬🇧【VIP英格兰• 伍尔弗汉普顿】原生', '🇬🇧【VIP威尔士• 加的夫】原生', 🇸🇪【VIP瑞典•斯德哥尔摩】原生, 🇲🇽【VIP墨西哥•瓜达拉哈拉】原生, 🇷🇺【VIP俄罗斯•莫斯科】原生, 🇷🇺【VIP俄罗斯•新西伯利亚】原生, 🇮🇱【VIP以色列•耶路撒冷】原生, 🇹🇷【VIP土耳其•伊斯坦布尔】原生, 🇪🇬【VIP埃及•开罗】原生, 🇲🇰【VIP马其顿•斯科普里】原生, 🇵🇷【VIP波多黎各•圣胡安】原生, 🇷🇸【VIP塞尔维亚•贝尔格莱德】原生, 🇬🇹【VIP危地马拉•米斯科】原生, 🇵🇪【VIP秘鲁•利马】原生, 🇳🇬【VIP尼日利亚•阿布贾】原生, 🇪🇨【VIP厄瓜多尔•基多】原生, 🇺🇦【VIP乌克兰•哈尔科夫】原生, 🇳🇱【VIP荷兰•阿姆斯特丹】原生, 🇳🇴【VIP挪威•奥斯陆】原生, 🇪🇸【VIP西班牙•马德里】原生, 🇮🇸【VIP冰岛•雷克雅未克】原生, 🇦🇷【VIP阿根廷•布宜诺斯艾利斯】原生, 🇦🇷【VIP阿根廷•科尔多瓦】原生, 🇨🇾【VIP塞浦路斯•帕福斯】原生, 🇪🇪【VIP爱沙尼亚•塔林】原生, 🇧🇪【VIP比利时•布鲁塞尔】原生, 🇦🇹【VIP奥地利•维也纳】原生, 🇵🇹【VIP葡萄牙•里斯本】原生, 🇳🇵【VIP尼泊尔•加德滿都】原生, 🇩🇯【VIP吉布提•阿尔塔】原生, 🇱🇹【VIP立陶宛•维尔纽斯】原生, 🇰🇿【VIP哈萨克斯坦•阿拉木图】原生, 🇵🇰【VIP巴基斯坦•卡拉奇】原生, 🇬🇪【VIP格鲁吉亚•第比利斯】原生], url: 'http://www.gstatic.com/generate_204', interval: 7200 }
+rules:
+    - 'DOMAIN,safebrowsing.urlsec.qq.com,DIRECT'
+    - 'DOMAIN,safebrowsing.googleapis.com,DIRECT'
+    - 'DOMAIN,ocsp.apple.com,手动选择'
+    - 'DOMAIN-SUFFIX,digicert.com,手动选择'
+    - 'DOMAIN-SUFFIX,entrust.net,手动选择'
+    - 'DOMAIN,ocsp.verisign.net,手动选择'
+    - 'DOMAIN-SUFFIX,apps.apple.com,手动选择'
+    - 'DOMAIN,itunes.apple.com,手动选择'
+    - 'DOMAIN-SUFFIX,blobstore.apple.com,手动选择'
+    - 'DOMAIN-SUFFIX,music.apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,itunes.apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,icloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,icloud-content.com,DIRECT'
+    - 'DOMAIN-SUFFIX,me.com,DIRECT'
+    - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,akadns.net,DIRECT'
+    - 'DOMAIN-SUFFIX,aaplimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cdn-apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cn,DIRECT'
+    - 'DOMAIN-KEYWORD,-cn,DIRECT'
+    - 'DOMAIN-SUFFIX,126.com,DIRECT'
+    - 'DOMAIN-SUFFIX,126.net,DIRECT'
+    - 'DOMAIN-SUFFIX,127.net,DIRECT'
+    - 'DOMAIN-SUFFIX,163.com,DIRECT'
+    - 'DOMAIN-SUFFIX,360buyimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,36kr.com,DIRECT'
+    - 'DOMAIN-SUFFIX,acfun.tv,DIRECT'
+    - 'DOMAIN-SUFFIX,air-matters.com,DIRECT'
+    - 'DOMAIN-SUFFIX,aixifan.com,DIRECT'
+    - 'DOMAIN-SUFFIX,akamaized.net,DIRECT'
+    - 'DOMAIN-KEYWORD,alicdn,DIRECT'
+    - 'DOMAIN-KEYWORD,alipay,DIRECT'
+    - 'DOMAIN-KEYWORD,taobao,DIRECT'
+    - 'DOMAIN-SUFFIX,amap.com,DIRECT'
+    - 'DOMAIN-SUFFIX,autonavi.com,DIRECT'
+    - 'DOMAIN-KEYWORD,baidu,DIRECT'
+    - 'DOMAIN-SUFFIX,bdimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bdstatic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bilibili.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bilivideo.com,DIRECT'
+    - 'DOMAIN-SUFFIX,caiyunapp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,clouddn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cnbeta.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cnbetacdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cootekservice.com,DIRECT'
+    - 'DOMAIN-SUFFIX,csdn.net,DIRECT'
+    - 'DOMAIN-SUFFIX,ctrip.com,DIRECT'
+    - 'DOMAIN-SUFFIX,dgtle.com,DIRECT'
+    - 'DOMAIN-SUFFIX,dianping.com,DIRECT'
+    - 'DOMAIN-SUFFIX,douban.com,DIRECT'
+    - 'DOMAIN-SUFFIX,doubanio.com,DIRECT'
+    - 'DOMAIN-SUFFIX,duokan.com,DIRECT'
+    - 'DOMAIN-SUFFIX,easou.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ele.me,DIRECT'
+    - 'DOMAIN-SUFFIX,feng.com,DIRECT'
+    - 'DOMAIN-SUFFIX,fir.im,DIRECT'
+    - 'DOMAIN-SUFFIX,frdic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,g-cores.com,DIRECT'
+    - 'DOMAIN-SUFFIX,godic.net,DIRECT'
+    - 'DOMAIN-SUFFIX,gtimg.com,DIRECT'
+    - 'DOMAIN,cdn.hockeyapp.net,DIRECT'
+    - 'DOMAIN-SUFFIX,hdslb.com,DIRECT'
+    - 'DOMAIN-SUFFIX,hongxiu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,hxcdn.net,DIRECT'
+    - 'DOMAIN-SUFFIX,iciba.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ifeng.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ifengimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ipip.net,DIRECT'
+    - 'DOMAIN-SUFFIX,iqiyi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,jd.com,DIRECT'
+    - 'DOMAIN-SUFFIX,jianshu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,knewone.com,DIRECT'
+    - 'DOMAIN-SUFFIX,le.com,DIRECT'
+    - 'DOMAIN-SUFFIX,lecloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,lemicp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,licdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,linkedin.com,DIRECT'
+    - 'DOMAIN-SUFFIX,luoo.net,DIRECT'
+    - 'DOMAIN-SUFFIX,meituan.com,DIRECT'
+    - 'DOMAIN-SUFFIX,meituan.net,DIRECT'
+    - 'DOMAIN-SUFFIX,mi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miaopai.com,DIRECT'
+    - 'DOMAIN-SUFFIX,microsoft.com,DIRECT'
+    - 'DOMAIN-SUFFIX,microsoftonline.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miui.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miwifi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,mob.com,DIRECT'
+    - 'DOMAIN-SUFFIX,netease.com,DIRECT'
+    - 'DOMAIN-SUFFIX,office.com,DIRECT'
+    - 'DOMAIN-SUFFIX,office365.com,DIRECT'
+    - 'DOMAIN-KEYWORD,officecdn,DIRECT'
+    - 'DOMAIN-SUFFIX,oschina.net,DIRECT'
+    - 'DOMAIN-SUFFIX,ppsimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,pstatp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qcloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qdaily.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qdmm.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qhimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qhres.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qidian.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qihucdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qiniu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qiniucdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qiyipic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qq.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qqurl.com,DIRECT'
+    - 'DOMAIN-SUFFIX,rarbg.to,DIRECT'
+    - 'DOMAIN-SUFFIX,ruguoapp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,segmentfault.com,DIRECT'
+    - 'DOMAIN-SUFFIX,sinaapp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,smzdm.com,DIRECT'
+    - 'DOMAIN-SUFFIX,snapdrop.net,DIRECT'
+    - 'DOMAIN-SUFFIX,sogou.com,DIRECT'
+    - 'DOMAIN-SUFFIX,sogoucdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,sohu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,soku.com,DIRECT'
+    - 'DOMAIN-SUFFIX,speedtest.net,手动选择'
+    - 'DOMAIN-SUFFIX,sspai.com,DIRECT'
+    - 'DOMAIN-SUFFIX,suning.com,DIRECT'
+    - 'DOMAIN-SUFFIX,taobao.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tencent.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tenpay.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tianyancha.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tmall.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tudou.com,DIRECT'
+    - 'DOMAIN-SUFFIX,umetrip.com,DIRECT'
+    - 'DOMAIN-SUFFIX,upaiyun.com,DIRECT'
+    - 'DOMAIN-SUFFIX,upyun.com,DIRECT'
+    - 'DOMAIN-SUFFIX,veryzhun.com,DIRECT'
+    - 'DOMAIN-SUFFIX,weather.com,DIRECT'
+    - 'DOMAIN-SUFFIX,weibo.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xiami.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xiami.net,DIRECT'
+    - 'DOMAIN-SUFFIX,xiaomicp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ximalaya.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xmcdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xunlei.com,DIRECT'
+    - 'DOMAIN-SUFFIX,yhd.com,DIRECT'
+    - 'DOMAIN-SUFFIX,yihaodianimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,yinxiang.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ykimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,youdao.com,DIRECT'
+    - 'DOMAIN-SUFFIX,youku.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zealer.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zhihu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zhimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zimuzu.tv,DIRECT'
+    - 'DOMAIN-SUFFIX,zoho.com,DIRECT'
+    - 'DOMAIN-KEYWORD,amazon,手动选择'
+    - 'DOMAIN-KEYWORD,google,手动选择'
+    - 'DOMAIN-KEYWORD,gmail,手动选择'
+    - 'DOMAIN-KEYWORD,youtube,手动选择'
+    - 'DOMAIN-KEYWORD,facebook,手动选择'
+    - 'DOMAIN-SUFFIX,fb.me,手动选择'
+    - 'DOMAIN-SUFFIX,fbcdn.net,手动选择'
+    - 'DOMAIN-KEYWORD,twitter,手动选择'
+    - 'DOMAIN-KEYWORD,instagram,手动选择'
+    - 'DOMAIN-KEYWORD,dropbox,手动选择'
+    - 'DOMAIN-SUFFIX,twimg.com,手动选择'
+    - 'DOMAIN-KEYWORD,blogspot,手动选择'
+    - 'DOMAIN-SUFFIX,youtu.be,手动选择'
+    - 'DOMAIN-KEYWORD,whatsapp,手动选择'
+    - 'DOMAIN-KEYWORD,admarvel,REJECT'
+    - 'DOMAIN-KEYWORD,admaster,REJECT'
+    - 'DOMAIN-KEYWORD,adsage,REJECT'
+    - 'DOMAIN-KEYWORD,adsmogo,REJECT'
+    - 'DOMAIN-KEYWORD,adsrvmedia,REJECT'
+    - 'DOMAIN-KEYWORD,adwords,REJECT'
+    - 'DOMAIN-KEYWORD,adservice,REJECT'
+    - 'DOMAIN-KEYWORD,domob,REJECT'
+    - 'DOMAIN-KEYWORD,duomeng,REJECT'
+    - 'DOMAIN-KEYWORD,dwtrack,REJECT'
+    - 'DOMAIN-KEYWORD,guanggao,REJECT'
+    - 'DOMAIN-KEYWORD,lianmeng,REJECT'
+    - 'DOMAIN-SUFFIX,mmstat.com,REJECT'
+    - 'DOMAIN-KEYWORD,omgmta,REJECT'
+    - 'DOMAIN-KEYWORD,openx,REJECT'
+    - 'DOMAIN-KEYWORD,partnerad,REJECT'
+    - 'DOMAIN-KEYWORD,pingfore,REJECT'
+    - 'DOMAIN-KEYWORD,supersonicads,REJECT'
+    - 'DOMAIN-KEYWORD,tracking,REJECT'
+    - 'DOMAIN-KEYWORD,uedas,REJECT'
+    - 'DOMAIN-KEYWORD,umeng,REJECT'
+    - 'DOMAIN-KEYWORD,usage,REJECT'
+    - 'DOMAIN-KEYWORD,wlmonitor,REJECT'
+    - 'DOMAIN-KEYWORD,zjtoolbar,REJECT'
+    - 'DOMAIN-SUFFIX,9to5mac.com,手动选择'
+    - 'DOMAIN-SUFFIX,abpchina.org,手动选择'
+    - 'DOMAIN-SUFFIX,adblockplus.org,手动选择'
+    - 'DOMAIN-SUFFIX,adobe.com,手动选择'
+    - 'DOMAIN-SUFFIX,alfredapp.com,手动选择'
+    - 'DOMAIN-SUFFIX,amplitude.com,手动选择'
+    - 'DOMAIN-SUFFIX,ampproject.org,手动选择'
+    - 'DOMAIN-SUFFIX,android.com,手动选择'
+    - 'DOMAIN-SUFFIX,angularjs.org,手动选择'
+    - 'DOMAIN-SUFFIX,aolcdn.com,手动选择'
+    - 'DOMAIN-SUFFIX,apkpure.com,手动选择'
+    - 'DOMAIN-SUFFIX,appledaily.com,手动选择'
+    - 'DOMAIN-SUFFIX,appshopper.com,手动选择'
+    - 'DOMAIN-SUFFIX,appspot.com,手动选择'
+    - 'DOMAIN-SUFFIX,arcgis.com,手动选择'
+    - 'DOMAIN-SUFFIX,archive.org,手动选择'
+    - 'DOMAIN-SUFFIX,armorgames.com,手动选择'
+    - 'DOMAIN-SUFFIX,aspnetcdn.com,手动选择'
+    - 'DOMAIN-SUFFIX,att.com,手动选择'
+    - 'DOMAIN-SUFFIX,awsstatic.com,手动选择'
+    - 'DOMAIN-SUFFIX,azureedge.net,手动选择'
+    - 'DOMAIN-SUFFIX,azurewebsites.net,手动选择'
+    - 'DOMAIN-SUFFIX,bing.com,手动选择'
+    - 'DOMAIN-SUFFIX,bintray.com,手动选择'
+    - 'DOMAIN-SUFFIX,bit.com,手动选择'
+    - 'DOMAIN-SUFFIX,bit.ly,手动选择'
+    - 'DOMAIN-SUFFIX,bitbucket.org,手动选择'
+    - 'DOMAIN-SUFFIX,bjango.com,手动选择'
+    - 'DOMAIN-SUFFIX,bkrtx.com,手动选择'
+    - 'DOMAIN-SUFFIX,blog.com,手动选择'
+    - 'DOMAIN-SUFFIX,blogcdn.com,手动选择'
+    - 'DOMAIN-SUFFIX,blogger.com,手动选择'
+    - 'DOMAIN-SUFFIX,blogsmithmedia.com,手动选择'
+    - 'DOMAIN-SUFFIX,blogspot.com,手动选择'
+    - 'DOMAIN-SUFFIX,blogspot.hk,手动选择'
+    - 'DOMAIN-SUFFIX,bloomberg.com,手动选择'
+    - 'DOMAIN-SUFFIX,box.com,手动选择'
+    - 'DOMAIN-SUFFIX,box.net,手动选择'
+    - 'DOMAIN-SUFFIX,cachefly.net,手动选择'
+    - 'DOMAIN-SUFFIX,chromium.org,手动选择'
+    - 'DOMAIN-SUFFIX,cl.ly,手动选择'
+    - 'DOMAIN-SUFFIX,cloudflare.com,手动选择'
+    - 'DOMAIN-SUFFIX,cloudfront.net,手动选择'
+    - 'DOMAIN-SUFFIX,cloudmagic.com,手动选择'
+    - 'DOMAIN-SUFFIX,cmail19.com,手动选择'
+    - 'DOMAIN-SUFFIX,cnet.com,手动选择'
+    - 'DOMAIN-SUFFIX,cocoapods.org,手动选择'
+    - 'DOMAIN-SUFFIX,comodoca.com,手动选择'
+    - 'DOMAIN-SUFFIX,crashlytics.com,手动选择'
+    - 'DOMAIN-SUFFIX,culturedcode.com,手动选择'
+    - 'DOMAIN-SUFFIX,d.pr,手动选择'
+    - 'DOMAIN-SUFFIX,danilo.to,手动选择'
+    - 'DOMAIN-SUFFIX,dayone.me,手动选择'
+    - 'DOMAIN-SUFFIX,db.tt,手动选择'
+    - 'DOMAIN-SUFFIX,deskconnect.com,手动选择'
+    - 'DOMAIN-SUFFIX,disq.us,手动选择'
+    - 'DOMAIN-SUFFIX,disqus.com,手动选择'
+    - 'DOMAIN-SUFFIX,disquscdn.com,手动选择'
+    - 'DOMAIN-SUFFIX,dnsimple.com,手动选择'
+    - 'DOMAIN-SUFFIX,docker.com,手动选择'
+    - 'DOMAIN-SUFFIX,dribbble.com,手动选择'
+    - 'DOMAIN-SUFFIX,droplr.com,手动选择'
+    - 'DOMAIN-SUFFIX,duckduckgo.com,手动选择'
+    - 'DOMAIN-SUFFIX,dueapp.com,手动选择'
+    - 'DOMAIN-SUFFIX,dytt8.net,手动选择'
+    - 'DOMAIN-SUFFIX,edgecastcdn.net,手动选择'
+    - 'DOMAIN-SUFFIX,edgekey.net,手动选择'
+    - 'DOMAIN-SUFFIX,edgesuite.net,手动选择'
+    - 'DOMAIN-SUFFIX,engadget.com,手动选择'
+    - 'DOMAIN-SUFFIX,entrust.net,手动选择'
+    - 'DOMAIN-SUFFIX,eurekavpt.com,手动选择'
+    - 'DOMAIN-SUFFIX,evernote.com,手动选择'
+    - 'DOMAIN-SUFFIX,fabric.io,手动选择'
+    - 'DOMAIN-SUFFIX,fast.com,手动选择'
+    - 'DOMAIN-SUFFIX,fastly.net,手动选择'
+    - 'DOMAIN-SUFFIX,fc2.com,手动选择'
+    - 'DOMAIN-SUFFIX,feedburner.com,手动选择'
+    - 'DOMAIN-SUFFIX,feedly.com,手动选择'
+    - 'DOMAIN-SUFFIX,feedsportal.com,手动选择'
+    - 'DOMAIN-SUFFIX,fiftythree.com,手动选择'
+    - 'DOMAIN-SUFFIX,firebaseio.com,手动选择'
+    - 'DOMAIN-SUFFIX,flexibits.com,手动选择'
+    - 'DOMAIN-SUFFIX,flickr.com,手动选择'
+    - 'DOMAIN-SUFFIX,flipboard.com,手动选择'
+    - 'DOMAIN-SUFFIX,g.co,手动选择'
+    - 'DOMAIN-SUFFIX,gabia.net,手动选择'
+    - 'DOMAIN-SUFFIX,geni.us,手动选择'
+    - 'DOMAIN-SUFFIX,gfx.ms,手动选择'
+    - 'DOMAIN-SUFFIX,ggpht.com,手动选择'
+    - 'DOMAIN-SUFFIX,ghostnoteapp.com,手动选择'
+    - 'DOMAIN-SUFFIX,git.io,手动选择'
+    - 'DOMAIN-KEYWORD,github,手动选择'
+    - 'DOMAIN-SUFFIX,globalsign.com,手动选择'
+    - 'DOMAIN-SUFFIX,gmodules.com,手动选择'
+    - 'DOMAIN-SUFFIX,godaddy.com,手动选择'
+    - 'DOMAIN-SUFFIX,golang.org,手动选择'
+    - 'DOMAIN-SUFFIX,gongm.in,手动选择'
+    - 'DOMAIN-SUFFIX,goo.gl,手动选择'
+    - 'DOMAIN-SUFFIX,goodreaders.com,手动选择'
+    - 'DOMAIN-SUFFIX,goodreads.com,手动选择'
+    - 'DOMAIN-SUFFIX,gravatar.com,手动选择'
+    - 'DOMAIN-SUFFIX,gstatic.com,手动选择'
+    - 'DOMAIN-SUFFIX,gvt0.com,手动选择'
+    - 'DOMAIN-SUFFIX,hockeyapp.net,手动选择'
+    - 'DOMAIN-SUFFIX,hotmail.com,手动选择'
+    - 'DOMAIN-SUFFIX,icons8.com,手动选择'
+    - 'DOMAIN-SUFFIX,ifixit.com,手动选择'
+    - 'DOMAIN-SUFFIX,ift.tt,手动选择'
+    - 'DOMAIN-SUFFIX,ifttt.com,手动选择'
+    - 'DOMAIN-SUFFIX,iherb.com,手动选择'
+    - 'DOMAIN-SUFFIX,imageshack.us,手动选择'
+    - 'DOMAIN-SUFFIX,img.ly,手动选择'
+    - 'DOMAIN-SUFFIX,imgur.com,手动选择'
+    - 'DOMAIN-SUFFIX,imore.com,手动选择'
+    - 'DOMAIN-SUFFIX,instapaper.com,手动选择'
+    - 'DOMAIN-SUFFIX,ipn.li,手动选择'
+    - 'DOMAIN-SUFFIX,is.gd,手动选择'
+    - 'DOMAIN-SUFFIX,issuu.com,手动选择'
+    - 'DOMAIN-SUFFIX,itgonglun.com,手动选择'
+    - 'DOMAIN-SUFFIX,itun.es,手动选择'
+    - 'DOMAIN-SUFFIX,ixquick.com,手动选择'
+    - 'DOMAIN-SUFFIX,j.mp,手动选择'
+    - 'DOMAIN-SUFFIX,js.revsci.net,手动选择'
+    - 'DOMAIN-SUFFIX,jshint.com,手动选择'
+    - 'DOMAIN-SUFFIX,jtvnw.net,手动选择'
+    - 'DOMAIN-SUFFIX,justgetflux.com,手动选择'
+    - 'DOMAIN-SUFFIX,kat.cr,手动选择'
+    - 'DOMAIN-SUFFIX,klip.me,手动选择'
+    - 'DOMAIN-SUFFIX,libsyn.com,手动选择'
+    - 'DOMAIN-SUFFIX,linode.com,手动选择'
+    - 'DOMAIN-SUFFIX,lithium.com,手动选择'
+    - 'DOMAIN-SUFFIX,littlehj.com,手动选择'
+    - 'DOMAIN-SUFFIX,live.com,手动选择'
+    - 'DOMAIN-SUFFIX,live.net,手动选择'
+    - 'DOMAIN-SUFFIX,livefilestore.com,手动选择'
+    - 'DOMAIN-SUFFIX,llnwd.net,手动选择'
+    - 'DOMAIN-SUFFIX,macid.co,手动选择'
+    - 'DOMAIN-SUFFIX,macromedia.com,手动选择'
+    - 'DOMAIN-SUFFIX,macrumors.com,手动选择'
+    - 'DOMAIN-SUFFIX,mashable.com,手动选择'
+    - 'DOMAIN-SUFFIX,mathjax.org,手动选择'
+    - 'DOMAIN-SUFFIX,medium.com,手动选择'
+    - 'DOMAIN-SUFFIX,mega.co.nz,手动选择'
+    - 'DOMAIN-SUFFIX,mega.nz,手动选择'
+    - 'DOMAIN-SUFFIX,megaupload.com,手动选择'
+    - 'DOMAIN-SUFFIX,microsofttranslator.com,手动选择'
+    - 'DOMAIN-SUFFIX,mindnode.com,手动选择'
+    - 'DOMAIN-SUFFIX,mobile01.com,手动选择'
+    - 'DOMAIN-SUFFIX,modmyi.com,手动选择'
+    - 'DOMAIN-SUFFIX,msedge.net,手动选择'
+    - 'DOMAIN-SUFFIX,myfontastic.com,手动选择'
+    - 'DOMAIN-SUFFIX,name.com,手动选择'
+    - 'DOMAIN-SUFFIX,nextmedia.com,手动选择'
+    - 'DOMAIN-SUFFIX,nsstatic.net,手动选择'
+    - 'DOMAIN-SUFFIX,nssurge.com,手动选择'
+    - 'DOMAIN-SUFFIX,nyt.com,手动选择'
+    - 'DOMAIN-SUFFIX,nytimes.com,手动选择'
+    - 'DOMAIN-SUFFIX,omnigroup.com,手动选择'
+    - 'DOMAIN-SUFFIX,onedrive.com,手动选择'
+    - 'DOMAIN-SUFFIX,onenote.com,手动选择'
+    - 'DOMAIN-SUFFIX,ooyala.com,手动选择'
+    - 'DOMAIN-SUFFIX,openvpn.net,手动选择'
+    - 'DOMAIN-SUFFIX,openwrt.org,手动选择'
+    - 'DOMAIN-SUFFIX,orkut.com,手动选择'
+    - 'DOMAIN-SUFFIX,osxdaily.com,手动选择'
+    - 'DOMAIN-SUFFIX,outlook.com,手动选择'
+    - 'DOMAIN-SUFFIX,ow.ly,手动选择'
+    - 'DOMAIN-SUFFIX,paddleapi.com,手动选择'
+    - 'DOMAIN-SUFFIX,parallels.com,手动选择'
+    - 'DOMAIN-SUFFIX,parse.com,手动选择'
+    - 'DOMAIN-SUFFIX,pdfexpert.com,手动选择'
+    - 'DOMAIN-SUFFIX,periscope.tv,手动选择'
+    - 'DOMAIN-SUFFIX,pinboard.in,手动选择'
+    - 'DOMAIN-SUFFIX,pinterest.com,手动选择'
+    - 'DOMAIN-SUFFIX,pixelmator.com,手动选择'
+    - 'DOMAIN-SUFFIX,pixiv.net,手动选择'
+    - 'DOMAIN-SUFFIX,playpcesor.com,手动选择'
+    - 'DOMAIN-SUFFIX,playstation.com,手动选择'
+    - 'DOMAIN-SUFFIX,playstation.com.hk,手动选择'
+    - 'DOMAIN-SUFFIX,playstation.net,手动选择'
+    - 'DOMAIN-SUFFIX,playstationnetwork.com,手动选择'
+    - 'DOMAIN-SUFFIX,pushwoosh.com,手动选择'
+    - 'DOMAIN-SUFFIX,rime.im,手动选择'
+    - 'DOMAIN-SUFFIX,servebom.com,手动选择'
+    - 'DOMAIN-SUFFIX,sfx.ms,手动选择'
+    - 'DOMAIN-SUFFIX,shadowsocks.org,手动选择'
+    - 'DOMAIN-SUFFIX,sharethis.com,手动选择'
+    - 'DOMAIN-SUFFIX,shazam.com,手动选择'
+    - 'DOMAIN-SUFFIX,skype.com,手动选择'
+    - 'DOMAIN-SUFFIX,smartdns手动选择.com,手动选择'
+    - 'DOMAIN-SUFFIX,smartmailcloud.com,手动选择'
+    - 'DOMAIN-SUFFIX,sndcdn.com,手动选择'
+    - 'DOMAIN-SUFFIX,sony.com,手动选择'
+    - 'DOMAIN-SUFFIX,soundcloud.com,手动选择'
+    - 'DOMAIN-SUFFIX,sourceforge.net,手动选择'
+    - 'DOMAIN-SUFFIX,spotify.com,手动选择'
+    - 'DOMAIN-SUFFIX,squarespace.com,手动选择'
+    - 'DOMAIN-SUFFIX,sstatic.net,手动选择'
+    - 'DOMAIN-SUFFIX,st.luluku.pw,手动选择'
+    - 'DOMAIN-SUFFIX,stackoverflow.com,手动选择'
+    - 'DOMAIN-SUFFIX,startpage.com,手动选择'
+    - 'DOMAIN-SUFFIX,staticflickr.com,手动选择'
+    - 'DOMAIN-SUFFIX,steamcommunity.com,手动选择'
+    - 'DOMAIN-SUFFIX,symauth.com,手动选择'
+    - 'DOMAIN-SUFFIX,symcb.com,手动选择'
+    - 'DOMAIN-SUFFIX,symcd.com,手动选择'
+    - 'DOMAIN-SUFFIX,tapbots.com,手动选择'
+    - 'DOMAIN-SUFFIX,tapbots.net,手动选择'
+    - 'DOMAIN-SUFFIX,tdesktop.com,手动选择'
+    - 'DOMAIN-SUFFIX,techcrunch.com,手动选择'
+    - 'DOMAIN-SUFFIX,techsmith.com,手动选择'
+    - 'DOMAIN-SUFFIX,thepiratebay.org,手动选择'
+    - 'DOMAIN-SUFFIX,theverge.com,手动选择'
+    - 'DOMAIN-SUFFIX,time.com,手动选择'
+    - 'DOMAIN-SUFFIX,timeinc.net,手动选择'
+    - 'DOMAIN-SUFFIX,tiny.cc,手动选择'
+    - 'DOMAIN-SUFFIX,tinypic.com,手动选择'
+    - 'DOMAIN-SUFFIX,tmblr.co,手动选择'
+    - 'DOMAIN-SUFFIX,todoist.com,手动选择'
+    - 'DOMAIN-SUFFIX,trello.com,手动选择'
+    - 'DOMAIN-SUFFIX,trustasiassl.com,手动选择'
+    - 'DOMAIN-SUFFIX,tumblr.co,手动选择'
+    - 'DOMAIN-SUFFIX,tumblr.com,手动选择'
+    - 'DOMAIN-SUFFIX,tweetdeck.com,手动选择'
+    - 'DOMAIN-SUFFIX,tweetmarker.net,手动选择'
+    - 'DOMAIN-SUFFIX,twitch.tv,手动选择'
+    - 'DOMAIN-SUFFIX,txmblr.com,手动选择'
+    - 'DOMAIN-SUFFIX,typekit.net,手动选择'
+    - 'DOMAIN-SUFFIX,ubertags.com,手动选择'
+    - 'DOMAIN-SUFFIX,ublock.org,手动选择'
+    - 'DOMAIN-SUFFIX,ubnt.com,手动选择'
+    - 'DOMAIN-SUFFIX,ulyssesapp.com,手动选择'
+    - 'DOMAIN-SUFFIX,urchin.com,手动选择'
+    - 'DOMAIN-SUFFIX,usertrust.com,手动选择'
+    - 'DOMAIN-SUFFIX,v.gd,手动选择'
+    - 'DOMAIN-SUFFIX,v2ex.com,手动选择'
+    - 'DOMAIN-SUFFIX,vimeo.com,手动选择'
+    - 'DOMAIN-SUFFIX,vimeocdn.com,手动选择'
+    - 'DOMAIN-SUFFIX,vine.co,手动选择'
+    - 'DOMAIN-SUFFIX,vivaldi.com,手动选择'
+    - 'DOMAIN-SUFFIX,vox-cdn.com,手动选择'
+    - 'DOMAIN-SUFFIX,vsco.co,手动选择'
+    - 'DOMAIN-SUFFIX,vultr.com,手动选择'
+    - 'DOMAIN-SUFFIX,w.org,手动选择'
+    - 'DOMAIN-SUFFIX,w3schools.com,手动选择'
+    - 'DOMAIN-SUFFIX,webtype.com,手动选择'
+    - 'DOMAIN-SUFFIX,wikiwand.com,手动选择'
+    - 'DOMAIN-SUFFIX,wikileaks.org,手动选择'
+    - 'DOMAIN-SUFFIX,wikimedia.org,手动选择'
+    - 'DOMAIN-SUFFIX,wikipedia.com,手动选择'
+    - 'DOMAIN-SUFFIX,wikipedia.org,手动选择'
+    - 'DOMAIN-SUFFIX,windows.com,手动选择'
+    - 'DOMAIN-SUFFIX,windows.net,手动选择'
+    - 'DOMAIN-SUFFIX,wire.com,手动选择'
+    - 'DOMAIN-SUFFIX,wordpress.com,手动选择'
+    - 'DOMAIN-SUFFIX,workflowy.com,手动选择'
+    - 'DOMAIN-SUFFIX,wp.com,手动选择'
+    - 'DOMAIN-SUFFIX,wsj.com,手动选择'
+    - 'DOMAIN-SUFFIX,wsj.net,手动选择'
+    - 'DOMAIN-SUFFIX,xda-developers.com,手动选择'
+    - 'DOMAIN-SUFFIX,xeeno.com,手动选择'
+    - 'DOMAIN-SUFFIX,xiti.com,手动选择'
+    - 'DOMAIN-SUFFIX,yahoo.com,手动选择'
+    - 'DOMAIN-SUFFIX,yimg.com,手动选择'
+    - 'DOMAIN-SUFFIX,ying.com,手动选择'
+    - 'DOMAIN-SUFFIX,yoyo.org,手动选择'
+    - 'DOMAIN-SUFFIX,ytimg.com,手动选择'
+    - 'DOMAIN-SUFFIX,telegra.ph,手动选择'
+    - 'DOMAIN-SUFFIX,telegram.org,手动选择'
+    - 'DOMAIN-SUFFIX,xn--ngstr-lra8j.com,DIRECT'
+    - 'IP-CIDR,91.108.4.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,91.108.8.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,91.108.12.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,91.108.16.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,91.108.56.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,149.154.160.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,149.154.164.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,149.154.168.0/22,手动选择,no-resolve'
+    - 'IP-CIDR,149.154.172.0/22,手动选择,no-resolve'
+    - 'DOMAIN-SUFFIX,local,DIRECT'
+    - 'IP-CIDR,127.0.0.0/8,DIRECT'
+    - 'IP-CIDR,172.16.0.0/12,DIRECT'
+    - 'IP-CIDR,192.168.0.0/16,DIRECT'
+    - 'IP-CIDR,10.0.0.0/8,DIRECT'
+    - 'IP-CIDR,17.0.0.0/8,DIRECT'
+    - 'IP-CIDR,100.64.0.0/10,DIRECT'
+    - 'GEOIP,CN,DIRECT'
+    - 'MATCH,手动选择'
