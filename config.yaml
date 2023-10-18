@@ -84,7 +84,7 @@ proxies:
       reality-opts:
         public-key: qC6Sw36Emk6lVLnsQhDab4r8SDM5ByEmpRl111rCWUo
       client-fingerprint: chrome
-    - { name: '🇭🇰【请定期更新订阅 | 更新于07/15】', type: vmess, server: gz1.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
+    - { name: '🇭🇰【请定期更新订阅 更新于07/15】', type: vmess, server: gz1.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
     - { name: 🇭🇰【PLUS套餐以上套餐解锁更多地区】, type: vmess, server: gz2.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
     - { name: '🇭🇰【不能用请更新订阅#优先香港节点】', type: vmess, server: gz3.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
     - { name: '🇭🇰【官网tiger81.cc tiger82.cc tiger83.cc】', type: vmess, server: gz4.any1886.com, port: '18236', uuid: 1ab111f9-bf42-4111-a0a7-e411114646f0, alterId: 0, cipher: auto, udp: true }
